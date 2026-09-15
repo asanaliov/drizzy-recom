@@ -1,8 +1,10 @@
-// Every mood is a pool of tracks. A mood with a `lead` always shows that track first.
+// Every mood is a pool of tracks with an album cover (`art`) for its tile.
+// A mood with a `lead` always shows that track first.
 // The app draws five at a time from the pool.
 const MOODS = [
   {
     id: "heartbroken",
+    art: "Take Care",
     name: "Heartbroken",
     line: "For when it's over and you're still checking their story.",
     tracks: [
@@ -30,6 +32,7 @@ const MOODS = [
   },
   {
     id: "hyped",
+    art: "Scorpion",
     name: "Hyped",
     line: "For the pregame, the gym, and the drive with the windows down.",
     tracks: [
@@ -56,6 +59,7 @@ const MOODS = [
   },
   {
     id: "late-night",
+    art: "Honestly, Nevermind",
     name: "Late night",
     line: "For after midnight, low light, and nowhere to be.",
     tracks: [
@@ -85,6 +89,7 @@ const MOODS = [
   },
   {
     id: "petty",
+    art: "Family Matters",
     name: "Petty",
     line: "For when you're right, they're wrong, and you want it on record.",
     tracks: [
@@ -111,6 +116,7 @@ const MOODS = [
   },
   {
     id: "nostalgic",
+    art: "Thank Me Later",
     name: "Nostalgic",
     line: "For old photos, old friends, and the year everything changed.",
     tracks: [
@@ -136,6 +142,7 @@ const MOODS = [
   },
   {
     id: "confident",
+    art: "The Best in the World Pack",
     name: "Confident",
     line: "For walking in like you own the place, because tonight you do.",
     tracks: [
@@ -160,6 +167,7 @@ const MOODS = [
   },
   {
     id: "made-it",
+    art: "Nothing Was the Same",
     name: "Made it",
     line: "For the day it finally happened, and everyone who said it wouldn't.",
     lead: "No Secret",
@@ -185,6 +193,7 @@ const MOODS = [
   },
   {
     id: "in-love",
+    art: "Certified Lover Boy",
     name: "In love",
     line: "For the one you're texting right now.",
     tracks: [
@@ -213,6 +222,7 @@ const MOODS = [
   },
   {
     id: "grinding",
+    art: "If You're Reading This It's Too Late",
     name: "Grinding",
     line: "For the early morning, the long shift, and the plan nobody else believes in.",
     tracks: [

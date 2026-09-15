@@ -98,13 +98,20 @@
     btn.dataset.id = mood.id;
     btn.setAttribute("aria-pressed", "false");
 
+    const art = document.createElement("span");
+    art.className = "mood-art";
+    // `art` names either an album or a single with its own artwork
+    art.appendChild(coverNode({ title: mood.art, album: mood.art }, 48));
+    const text = document.createElement("span");
+    text.className = "mood-text";
     const name = document.createElement("span");
     name.className = "mood-name";
     name.textContent = mood.name;
     const line = document.createElement("span");
     line.className = "mood-line";
     line.textContent = mood.line;
-    btn.append(name, line);
+    text.append(name, line);
+    btn.append(art, text);
 
     btn.addEventListener("click", () => {
       if (current && current.id === mood.id) {
