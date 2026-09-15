@@ -19,21 +19,32 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="picker" aria-labelledby="picker-heading">
-        <h1 id="picker-heading">What's the mood?</h1>
-        <div class="moods" role="group" aria-label="Moods" data-moods></div>
+    <section class="intro" data-intro>
+      <div class="orbit-scroll" data-orbit-scroll>
+        <div class="orbit-wrap" aria-hidden="true">
+          <div class="orbit" data-orbit></div>
+          <img class="owl owl-center" src="images/owl.png" alt="" width="400" height="484">
+        </div>
       </div>
-      <div class="orbit-wrap" aria-hidden="true">
-        <div class="orbit" data-orbit></div>
-        <img class="owl owl-center" src="images/owl.png" alt="" width="400" height="484">
-      </div>
+      <p class="intro-line">Drake, sorted by how you feel.</p>
+      <a class="scroll-hint" href="#moods" data-scroll>
+        Pick a mood
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </section>
+
+    <section class="picker" id="moods" aria-labelledby="picker-heading">
+      <h1 id="picker-heading">What's the mood?</h1>
+      <div class="moods" role="group" aria-label="Moods" data-moods></div>
     </section>
 
     <section class="result" data-result hidden aria-live="polite">
       <div class="result-head">
-        <h2 class="result-mood" data-mood-name></h2>
-        <p class="result-line" data-mood-line></p>
+        <div class="result-covers" data-covers aria-hidden="true"></div>
+        <div>
+          <h2 class="result-mood" data-mood-name></h2>
+          <p class="result-line" data-mood-line></p>
+        </div>
       </div>
       <ol class="tracks" data-tracks></ol>
       <div class="actions">

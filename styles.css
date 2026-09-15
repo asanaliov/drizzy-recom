@@ -10,13 +10,14 @@
   --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --gutter: clamp(20px, 5vw, 64px);
   --wrap: 1120px;
-  --ring: clamp(240px, 30vw, 340px);
-  --cover: 56px;
+  --ring: min(72vmin, 540px);
+  --cover: 72px;
+  --top-h: 56px;
 }
 
 * { box-sizing: border-box; }
 
-html { color-scheme: dark; }
+html { color-scheme: dark; scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -27,23 +28,23 @@ body {
   font-size: 15px;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-direction: column;
 }
 
 a { color: inherit; }
 
 ::selection { background: var(--accent); color: var(--bg); }
 
-/* Header */
+/* Header stays put while the page scrolls under it */
 .top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px var(--gutter) 0;
-  width: 100%;
-  max-width: var(--wrap);
-  margin: 0 auto;
+  height: var(--top-h);
+  padding: 0 var(--gutter);
+  background: var(--bg);
 }
 
 .wordmark {
@@ -76,90 +77,41 @@ a { color: inherit; }
 }
 
 main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 0 var(--gutter);
   width: 100%;
   max-width: var(--wrap);
   margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
-/* With no mood picked, the hero sits in the middle of the screen */
-body.home main { justify-content: center; }
-body.home .hero { padding-bottom: clamp(24px, 8vh, 80px); }
-
-/* Hero: question and chips on the left, covers orbiting the owl on the right */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--ring);
-  align-items: center;
-  gap: 24px clamp(24px, 5vw, 72px);
-  padding-top: clamp(24px, 6vh, 56px);
-}
-
-.picker h1 {
-  margin: 0 0 18px;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(32px, 4.6vw, 52px);
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-
-.moods {
+/* Intro: one full screen of the owl and the catalogue */
+.intro {
+  min-height: calc(100svh - var(--top-h));
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 8px;
-  max-width: 640px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding-bottom: 32px;
+  --p: 0; /* scroll progress, 0 at the top, 1 once the intro has scrolled away */
 }
 
-.mood {
-  appearance: none;
-  border: 1px solid var(--rule);
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-size: 15px;
-  padding: 8px 16px 9px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: border-color 200ms, background-color 200ms, color 200ms, transform 200ms;
+.orbit-scroll {
+  transform: rotate(var(--scroll-rot, 0deg)) scale(calc(1 - 0.25 * var(--p)));
+  opacity: calc(1 - var(--p));
+  will-change: transform, opacity;
 }
 
-.mood:hover { border-color: var(--accent); color: var(--accent); }
-
-.mood:active { transform: scale(0.98); }
-
-.mood[aria-pressed="true"] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg);
-  font-weight: 500;
-}
-
-.mood:focus-visible,
-.btn:focus-visible,
-.track a:focus-visible,
-.wordmark:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* Orbit */
 .orbit-wrap {
   position: relative;
   width: var(--ring);
   height: var(--ring);
-  justify-self: end;
 }
 
 .owl-center {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 34%;
+  width: 36%;
   height: auto;
   transform: translate(-50%, -50%);
 }
@@ -167,7 +119,7 @@ body.home .hero { padding-bottom: clamp(24px, 8vh, 80px); }
 .orbit {
   position: absolute;
   inset: 0;
-  animation: spin 90s linear infinite;
+  animation: spin 120s linear infinite;
 }
 
 .orbit-item {
@@ -192,37 +144,150 @@ body.home .hero { padding-bottom: clamp(24px, 8vh, 80px); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: spin 90s linear infinite reverse;
+  animation: spin 120s linear infinite reverse;
 }
 
 .fallback {
   background: #000 url("images/owl.png") center / 50% auto no-repeat;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.intro-line {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--ink-2);
+  opacity: calc(1 - var(--p));
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--ink);
+  transition: border-color 200ms, color 200ms;
 }
 
-/* Once a mood is picked the ring gets smaller so the songs come up sooner */
-body:not(.home) { --ring: clamp(200px, 22vw, 260px); }
-body:not(.home) .hero { padding-top: clamp(16px, 3vh, 28px); }
+.scroll-hint:hover { border-color: var(--accent); color: var(--accent); }
+
+.scroll-hint svg { animation: nudge 2.4s ease-in-out infinite; }
+
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* Mood picker: one tile per mood, name and what it's for */
+.picker {
+  padding: clamp(40px, 8vh, 72px) 0 8px;
+  scroll-margin-top: var(--top-h);
+}
+
+.picker h1 {
+  margin: 0 0 20px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.moods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.mood {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 96px;
+  padding: 14px 18px 15px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 200ms, background-color 200ms, color 200ms, transform 200ms;
+}
+
+.mood-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--accent);
+  transition: color 200ms;
+}
+
+.mood-line {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink-3);
+  transition: color 200ms;
+}
+
+.mood:hover { border-color: var(--accent); }
+.mood:hover .mood-line { color: var(--ink-2); }
+.mood:active { transform: scale(0.99); }
+
+.mood[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.mood[aria-pressed="true"] .mood-name { color: var(--bg); }
+.mood[aria-pressed="true"] .mood-line { color: rgba(0, 0, 0, 0.7); }
+
+.mood:focus-visible,
+.btn:focus-visible,
+.track a:focus-visible,
+.wordmark:focus-visible,
+.scroll-hint:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 /* Result */
 .result {
-  padding: clamp(16px, 3vh, 28px) 0 32px;
+  padding: clamp(28px, 5vh, 44px) 0 40px;
+  scroll-margin-top: var(--top-h);
 }
 
 .result-head {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 18px;
+  align-items: center;
+  gap: 18px;
 }
+
+.result-covers {
+  display: flex;
+  flex: none;
+}
+
+.result-covers .track-cover {
+  width: 40px;
+  height: 40px;
+  margin-left: -12px;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px rgba(160, 140, 92, 0.35);
+}
+
+.result-covers .track-cover:first-child { margin-left: 0; }
 
 .result-mood {
   margin: 0;
@@ -236,15 +301,15 @@ body:not(.home) .hero { padding-top: clamp(16px, 3vh, 28px); }
 }
 
 .result-line {
-  margin: 0;
-  max-width: 48ch;
+  margin: 4px 0 0;
+  max-width: 56ch;
   font-size: 15px;
   color: var(--ink-2);
 }
 
 .tracks {
   list-style: none;
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   padding: 0;
   border-top: 1px solid var(--rule);
   counter-reset: track;
@@ -342,7 +407,6 @@ body:not(.home) .hero { padding-top: clamp(16px, 3vh, 28px); }
 }
 
 .btn:hover { background: var(--gold-2); border-color: var(--gold-2); }
-
 .btn:active { transform: scale(0.98); }
 
 .btn.ghost {
@@ -381,32 +445,25 @@ body:not(.home) .hero { padding-top: clamp(16px, 3vh, 28px); }
 .result:not([hidden]) .actions { animation-delay: 120ms; }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation: none !important;
     transition: none !important;
   }
+  .orbit-scroll { transform: none; opacity: 1; }
 }
 
 @media (max-width: 760px) {
-  :root { --ring: 240px; --cover: 48px; }
-  body:not(.home) { --ring: 180px; }
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 16px;
-  }
-  .orbit-wrap {
-    order: -1;
-    justify-self: center;
-  }
-  .picker h1 { text-align: center; }
-  .moods { justify-content: center; max-width: none; }
+  :root { --ring: min(78vw, 320px); --cover: 52px; }
+  .moods { grid-template-columns: repeat(2, 1fr); }
+  .mood { min-height: 0; padding: 12px 14px 13px; }
+  .mood-name { font-size: 22px; }
 }
 
 @media (max-width: 600px) {
-  .track {
-    grid-template-columns: 1.4em 40px minmax(0, 1fr);
-  }
+  .track { grid-template-columns: 1.4em 40px minmax(0, 1fr); }
   .track-cover { width: 40px; height: 40px; }
   .track-links { grid-column: 3; }
   .actions { flex-wrap: wrap; }
+  .result-head { align-items: flex-start; flex-direction: column; gap: 10px; }
 }

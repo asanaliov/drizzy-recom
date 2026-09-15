@@ -1,17 +1,22 @@
 (function () {
   const PICK = 5;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const els = {
     moods: document.querySelector("[data-moods]"),
     result: document.querySelector("[data-result]"),
     name: document.querySelector("[data-mood-name]"),
     line: document.querySelector("[data-mood-line]"),
+    covers: document.querySelector("[data-covers]"),
     tracks: document.querySelector("[data-tracks]"),
     shuffle: document.querySelector("[data-shuffle]"),
     copy: document.querySelector("[data-copy]"),
     home: document.querySelector("[data-home]"),
     count: document.querySelector("[data-count]"),
-    orbit: document.querySelector("[data-orbit]")
+    orbit: document.querySelector("[data-orbit]"),
+    orbitScroll: document.querySelector("[data-orbit-scroll]"),
+    intro: document.querySelector("[data-intro]"),
+    picker: document.getElementById("moods")
   };
 
   const total = MOODS.reduce((n, m) => n + m.tracks.length, 0);
@@ -36,12 +41,11 @@
     img.alt = "";
     img.width = size;
     img.height = size;
-    img.loading = "lazy";
     img.decoding = "async";
     return img;
   }
 
-  // Every distinct cover across all moods, oldest first, for the home ring
+  // Every distinct cover across all moods for the intro ring: albums first, then singles, oldest first
   const allCovers = (() => {
     const seen = new Map();
     MOODS.flatMap((m) => m.tracks)
@@ -50,31 +54,20 @@
         const url = coverFor(t);
         if (url && !seen.has(url)) seen.set(url, t);
       });
-    return [...seen.values()];
+    const items = [...seen.values()];
+    const isAlbum = (t) => !!COVERS.byAlbum[t.album] && !COVERS.byTitle[t.title];
+    return items.filter(isAlbum).concat(items.filter((t) => !isAlbum(t)));
   })();
 
-  function renderOrbit(tracks) {
-    // Distinct covers only; an album showing twice reads as a glitch
-    const seen = new Set();
-    const items = tracks.filter((t) => {
-      const key = coverFor(t) || "owl:" + t.title;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
+  function renderOrbit(items) {
     els.orbit.replaceChildren();
     const ringPx = els.orbit.clientWidth || 300;
-    // A handful of covers gets bigger tiles; a full ring gets smaller ones
-    const base = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--cover")) || 56;
-    const coverPx = items.length <= 6 ? Math.round(base * 1.3) : base;
-    els.orbit.style.setProperty("--cover", coverPx + "px");
+    const coverPx = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--cover")) || 56;
     const r = Math.round(ringPx / 2 - coverPx / 2);
 
-    // Only as many covers as fit around the ring without touching
-    const max = Math.max(3, Math.floor((2 * Math.PI * r) / (coverPx * 1.25)));
-    const shown = items.length > max
-      ? Array.from({ length: max }, (_, i) => items[Math.floor((i * items.length) / max)])
-      : items;
+    // Only as many covers as fit around the ring without touching; keep them in release order
+    const max = Math.max(3, Math.floor((2 * Math.PI * r) / (coverPx * 1.2)));
+    const shown = items.slice(0, max).sort((x, y) => x.year - y.year);
 
     const n = shown.length;
     shown.forEach((t, i) => {
@@ -83,21 +76,41 @@
       el.style.setProperty("--a", (i * 360) / n + "deg");
       el.style.setProperty("--r", r + "px");
       el.style.animationDelay = i * 40 + "ms";
-      el.appendChild(coverNode(t, 56));
+      el.appendChild(coverNode(t, coverPx));
       els.orbit.appendChild(el);
     });
   }
 
-  // Build the mood buttons
+  // The ring turns with the page and fades as the intro scrolls away
+  function onScroll() {
+    const y = window.scrollY;
+    const h = els.intro.offsetHeight || 1;
+    const p = Math.min(1, Math.max(0, y / (h * 0.75)));
+    els.intro.style.setProperty("--p", p.toFixed(3));
+    els.orbitScroll.style.setProperty("--scroll-rot", (y * 0.12).toFixed(1) + "deg");
+  }
+
+  // Build the mood tiles
   MOODS.forEach((mood) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "mood";
-    btn.textContent = mood.name;
     btn.dataset.id = mood.id;
     btn.setAttribute("aria-pressed", "false");
+
+    const name = document.createElement("span");
+    name.className = "mood-name";
+    name.textContent = mood.name;
+    const line = document.createElement("span");
+    line.className = "mood-line";
+    line.textContent = mood.line;
+    btn.append(name, line);
+
     btn.addEventListener("click", () => {
-      if (current && current.id === mood.id) return;
+      if (current && current.id === mood.id) {
+        els.result.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        return;
+      }
       location.hash = mood.id;
     });
     els.moods.appendChild(btn);
@@ -124,7 +137,14 @@
 
   function renderTracks(list) {
     els.tracks.replaceChildren();
+    els.covers.replaceChildren();
+
     list.forEach((t) => {
+      const stackCover = document.createElement("div");
+      stackCover.className = "track-cover";
+      stackCover.appendChild(coverNode(t, 40));
+      els.covers.appendChild(stackCover);
+
       const li = document.createElement("li");
       li.className = "track";
 
@@ -161,7 +181,7 @@
     });
   }
 
-  function show(mood) {
+  function show(mood, { scroll = true, instant = false } = {}) {
     current = mood;
     document.title = mood ? mood.name + " — Drizzy Recom" : "Drizzy Recom";
 
@@ -169,12 +189,9 @@
       b.setAttribute("aria-pressed", String(!!mood && b.dataset.id === mood.id));
     });
 
-    document.body.classList.toggle("home", !mood);
-
     if (!mood) {
       els.result.hidden = true;
       lastPick = [];
-      renderOrbit(allCovers);
       return;
     }
 
@@ -182,14 +199,13 @@
     els.line.textContent = mood.line;
     lastPick = pickFrom(mood);
     renderTracks(lastPick);
-    renderOrbit(lastPick);
 
     // Re-run the entrance so a new mood reads as a new page
     els.result.hidden = true;
     void els.result.offsetHeight;
     els.result.hidden = false;
-    if (window.innerWidth <= 760) {
-      els.result.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scroll) {
+      els.result.scrollIntoView({ behavior: instant || reduceMotion ? "auto" : "smooth", block: "start" });
     }
   }
 
@@ -197,7 +213,6 @@
     if (!current) return;
     lastPick = pickFrom(current);
     renderTracks(lastPick);
-    renderOrbit(lastPick);
     els.shuffle.blur();
   }
 
@@ -226,16 +241,31 @@
     e.preventDefault();
     history.pushState("", document.title, location.pathname + location.search);
     show(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   });
-  window.addEventListener("hashchange", () => show(fromHash()));
+  window.addEventListener("hashchange", () => {
+    if (location.hash === "#moods") return; // the intro's own link
+    show(fromHash());
+  });
 
   // Ring radius depends on layout width
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => renderOrbit(current ? lastPick : allCovers), 150);
+    resizeTimer = setTimeout(() => renderOrbit(allCovers), 150);
   });
 
-  show(fromHash());
+  if (!reduceMotion) {
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { onScroll(); ticking = false; });
+    }, { passive: true });
+  }
+
+  renderOrbit(allCovers);
+  onScroll();
+  // A shared link lands straight on the songs
+  show(fromHash(), { instant: true });
 })();
