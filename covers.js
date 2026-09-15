@@ -18,6 +18,10 @@ const COVERS = {
     "For All the Dogs": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/68/8b/a9/688ba9aa-4c90-c630-63c3-b6a7a0d945c2/23UM1IM56239.rgb.jpg/300x300bb.jpg",
     "$ome $exy $ongs 4 U": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/23/7c/a2/237ca270-9926-4b78-be81-410b6fc85f47/50291.jpg/300x300bb.jpg",
     "Scary Hours 2": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/9f/e2/93/9fe2935e-da8e-8951-26cc-3454c52a2831/21UMGIM18577.rgb.jpg/300x300bb.jpg",
+    "Iceman": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7f/39/61/7f396123-be56-bc11-eaab-976441808e58/26UMGIM63622.rgb.jpg/300x300bb.jpg",
+    "Maid of Honour": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/81/de/93/81de93ef-07f5-7f71-99ed-7ed35e58480a/26UMGIM63623.rgb.jpg/300x300bb.jpg",
+    "Diamante": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3d/98/5d/3d985daf-139f-a484-5797-897b3c420849/196872335002.jpg/300x300bb.jpg",
+    "God Did": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7b/6c/7d/7b6c7d04-86f6-a62a-26d1-66d293125982/196589286376.jpg/300x300bb.jpg",
     "Young Money: Rise of an Empire": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/be/cc/60/becc60ec-25a1-8a88-1320-6c5ab8c42131/14UMGIM06972.rgb.jpg/300x300bb.jpg",
     "The Best in the World Pack": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/ed/ec/95edecd9-ae39-f81c-5c96-9f20957104ec/19UMGIM54645.rgb.jpg/300x300bb.jpg"
   },
@@ -31,6 +35,7 @@ const COVERS = {
     "Summer Sixteen": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/61/2b/60/612b603c-2764-6536-c553-98f6fbe0fe98/00602547810632.rgb.jpg/300x300bb.jpg",
     "Diplomatic Immunity": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/4f/61/ef/4f61efab-6b4b-2472-73b9-5e9149ce30e9/00602567926917.rgb.jpg/300x300bb.jpg",
     "4PM in Calabasas": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg",
+    "Greece": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f1/46/87/f1468775-3e7c-083b-5285-b10bb18c30c3/886448646341.jpg/300x300bb.jpg",
     "5AM in Toronto": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg"
   }
 };

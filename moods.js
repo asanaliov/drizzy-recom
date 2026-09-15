@@ -23,7 +23,9 @@ const MOODS = [
       { title: "Finesse", album: "Scorpion", year: 2018, why: "Wanting someone who's already with someone. Quiet about it." },
       { title: "Pipe Down", album: "Certified Lover Boy", year: 2021, why: "The angriest three minutes on Certified Lover Boy." },
       { title: "Falling Back", album: "Honestly, Nevermind", year: 2022, why: "House drums under a chorus about being let down again." },
-      { title: "Tried Our Best", album: "For All the Dogs", year: 2023, why: "The closest thing to closure on For All the Dogs." }
+      { title: "Tried Our Best", album: "For All the Dogs", year: 2023, why: "The closest thing to closure on For All the Dogs." },
+      { title: "Feel No Ways", album: "Views", year: 2016, why: "Moving on, over a beat that makes it sound almost like a party." },
+      { title: "Stuck", album: "Maid of Honour", year: 2026, why: "From the toxic-romance side of the 2026 triple drop." }
     ]
   },
   {
@@ -48,7 +50,9 @@ const MOODS = [
       { title: "Portland", album: "More Life", year: 2017, why: "Quavo, Travis Scott, and the flute beat." },
       { title: "Knife Talk", album: "Certified Lover Boy", year: 2021, why: "21 Savage and Project Pat on the hardest beat on the album." },
       { title: "Jimmy Cooks", album: "Honestly, Nevermind", year: 2022, why: "A house album ends with 21 Savage and a beat switch." },
-      { title: "IDGAF", album: "For All the Dogs", year: 2023, why: "Yeat feature. Sounds like the ceiling is caving in, on purpose." }
+      { title: "IDGAF", album: "For All the Dogs", year: 2023, why: "Yeat feature. Sounds like the ceiling is caving in, on purpose." },
+      { title: "Janice STFU", album: "Iceman", year: 2026, why: "The 'I Follow Rivers' flip that debuted at number one." },
+      { title: "Rich Baby Daddy", album: "For All the Dogs", year: 2023, why: "Sexyy Red and SZA on the loudest song on For All the Dogs." }
     ]
   },
   {
@@ -73,7 +77,11 @@ const MOODS = [
       { title: "Too Much", album: "Nothing Was the Same", year: 2013, why: "Sampha's piano and a verse about his family." },
       { title: "Faithful", album: "Views", year: 2016, why: "Pimp C and dvsn on a song that moves at walking pace." },
       { title: "Spin Bout U", album: "Her Loss", year: 2022, why: "The soft one on Her Loss." },
-      { title: "Time Flies", album: "Dark Lane Demo Tapes", year: 2020, why: "Driving to someone's place at 3am and knowing better." }
+      { title: "Time Flies", album: "Dark Lane Demo Tapes", year: 2020, why: "Driving to someone's place at 3am and knowing better." },
+      { title: "Healing", album: "Diamante", year: 2024, why: "Gordo's house beat with Drake singing over it. Made for 2am." },
+      { title: "Don't Matter to Me", album: "Scorpion", year: 2018, why: "Unreleased Michael Jackson vocals on a song about a bad night." },
+      { title: "Flight's Booked", album: "Honestly, Nevermind", year: 2022, why: "Leaving town in the morning, staying out tonight." },
+      { title: "Girls Want Girls", album: "Certified Lover Boy", year: 2021, why: "Lil Baby feature, slow drums, the club near closing." }
     ]
   },
   {
@@ -98,7 +106,8 @@ const MOODS = [
       { title: "I'm Upset", album: "Scorpion", year: 2018, why: "The Degrassi reunion video. The song is about the money." },
       { title: "Can't Take a Joke", album: "Scorpion", year: 2018, why: "For when they can't." },
       { title: "Circo Loco", album: "Her Loss", year: 2022, why: "The Daft Punk flip, and the verse everyone argued about." },
-      { title: "Fear of Heights", album: "For All the Dogs", year: 2023, why: "Bitter, short, and about someone specific." }
+      { title: "Fear of Heights", album: "For All the Dogs", year: 2023, why: "Bitter, short, and about someone specific." },
+      { title: "Slime You Out", album: "For All the Dogs", year: 2023, why: "SZA and Drake taking turns being unfair to each other." }
     ]
   },
   {
@@ -148,7 +157,9 @@ const MOODS = [
       { title: "Free Smoke", album: "More Life", year: 2017, why: "The opener. Sounds like walking into a room you paid for." },
       { title: "Sandra's Rose", album: "Scorpion", year: 2018, why: "A DJ Premier beat and a verse that earns it." },
       { title: "Fair Trade", album: "Certified Lover Boy", year: 2021, why: "Losing friends and finding peace, with Travis Scott." },
-      { title: "What's Next", album: "Scary Hours 2", year: 2021, why: "The 2021 reset. Short, sure, over in three minutes." }
+      { title: "What's Next", album: "Scary Hours 2", year: 2021, why: "The 2021 reset. Short, sure, over in three minutes." },
+      { title: "No Secret", album: "God Did", year: 2022, why: "A DJ Khaled beat and a verse that doesn't hide anything." },
+      { title: "National Treasures", album: "Iceman", year: 2026, why: "Toronto, the Raptors, and the line about the Iceman being a nice man." }
     ]
   },
   {
@@ -173,7 +184,10 @@ const MOODS = [
       { title: "With You", album: "Views", year: 2016, why: "PartyNextDoor on a hook that sways." },
       { title: "Summer Games", album: "Scorpion", year: 2018, why: "Eighties synths and a summer that ended too fast." },
       { title: "Blem", album: "More Life", year: 2017, why: "Blem means high. The song means honest." },
-      { title: "TSU", album: "Certified Lover Boy", year: 2021, why: "Slow, warm, and a little too aware of itself." }
+      { title: "TSU", album: "Certified Lover Boy", year: 2021, why: "Slow, warm, and a little too aware of itself." },
+      { title: "Die Trying", album: "$ome $exy $ongs 4 U", year: 2025, why: "Yebba on the hook. The most sincere song on the album." },
+      { title: "Greece", album: "Single", year: 2020, why: "A DJ Khaled beat that sounds like a holiday, about exactly that." },
+      { title: "Whisper My Name", album: "Iceman", year: 2026, why: "The softest moment on Iceman." }
     ]
   },
   {
@@ -198,7 +212,8 @@ const MOODS = [
       { title: "4PM in Calabasas", album: "Single", year: 2016, why: "The 2016 timestamp. Collected on Care Package in 2019." },
       { title: "When to Say When", album: "Dark Lane Demo Tapes", year: 2020, why: "Rapping over the Song Cry beat about knowing when to stop." },
       { title: "The Remorse", album: "Certified Lover Boy", year: 2021, why: "The album closer, taking stock of everyone who helped." },
-      { title: "Is There More", album: "Scorpion", year: 2018, why: "The question at the end of the A side." }
+      { title: "Is There More", album: "Scorpion", year: 2018, why: "The question at the end of the A side." },
+      { title: "Don't Worry", album: "Iceman", year: 2026, why: "Deep in the back half of Iceman, when the dust has settled." }
     ]
   }
 ];
