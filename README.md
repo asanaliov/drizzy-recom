@@ -1,7 +1,5 @@
 # Drizzy Recom
 
-*If you're reading this, it's not too late.*
-
 Started from the bottom of a mood, now the whole playlist's here. Pick how you feel, get five songs from the 6 God that match it. Black and gold, a hundred and seventy-two tracks, nine moods, every one with a reason it made the cut. No cap, no filler, no skips.
 
 Hit **Five more** and the pool runs it back with a new set. Copy the link and send somebody the mood directly, like `#heartbroken` when texts go green, or `#late-night` when you're up at 6PM in New York and it's actually 3AM in Toronto.
