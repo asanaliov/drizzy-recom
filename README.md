@@ -1,4 +1,4 @@
-# Drake by Mood
+# Drizzy Recom
 
 *If you're reading this, it's not too late.*
 

@@ -90,7 +90,7 @@
 
   function show(mood) {
     current = mood;
-    document.title = mood ? mood.name + " — Drake by Mood" : "Drake by Mood";
+    document.title = mood ? mood.name + " — Drizzy Recom" : "Drizzy Recom";
 
     els.moods.querySelectorAll(".mood").forEach((b) => {
       b.setAttribute("aria-pressed", String(!!mood && b.dataset.id === mood.id));
