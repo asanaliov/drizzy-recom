@@ -1,13 +1,13 @@
 :root {
   --bg: #000000;
-  --accent: #d4af37;
+  --accent: #a08c5c;
   --ink: #f4f0e6;
   --ink-2: rgba(244, 240, 230, 0.62);
   --ink-3: rgba(244, 240, 230, 0.36);
   --rule: rgba(244, 240, 230, 0.14);
   --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --gold-2: #f0d77a;
+  --gold-2: #c4ad74;
   --gutter: clamp(20px, 5vw, 72px);
 }
 
@@ -53,7 +53,7 @@ a { color: inherit; }
 }
 
 .wordmark .owl {
-  width: 26px;
+  width: 22px;
   height: auto;
   flex: none;
 }
@@ -91,9 +91,9 @@ main {
   position: absolute;
   right: 0;
   top: clamp(8px, 3vh, 32px);
-  width: clamp(200px, 30vw, 380px);
+  width: clamp(180px, 24vw, 300px);
   height: auto;
-  opacity: 0.16;
+  opacity: 0.55;
   pointer-events: none;
   z-index: -1;
 }
@@ -303,7 +303,7 @@ main {
 
 @media (max-width: 600px) {
   .top { padding-top: 18px; }
-  .owl-hero { width: 150px; top: 0; opacity: 0.12; }
+  .owl-hero { width: 120px; top: 0; opacity: 0.35; }
   .track {
     grid-template-columns: 2.2em 1fr;
   }
