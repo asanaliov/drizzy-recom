@@ -17,7 +17,13 @@ const MOODS = [
       { title: "Hours in Silence", album: "Her Loss", year: 2022, why: "Nearly seven minutes of overthinking set to a slow drum." },
       { title: "Sooner Than Later", album: "So Far Gone", year: 2009, why: "Early, raw, and already sad about someone." },
       { title: "U with Me?", album: "Views", year: 2016, why: "Reading old messages and asking a question you know the answer to." },
-      { title: "Nothings into Somethings", album: "More Life", year: 2017, why: "Finding out from someone else that they moved on." }
+      { title: "Nothings into Somethings", album: "More Life", year: 2017, why: "Finding out from someone else that they moved on." },
+      { title: "Keep the Family Close", album: "Views", year: 2016, why: "The album opens with strings and a list of friends he doesn't have anymore." },
+      { title: "Redemption", album: "Views", year: 2016, why: "Five minutes of guilt over a beat that never lifts." },
+      { title: "Finesse", album: "Scorpion", year: 2018, why: "Wanting someone who's already with someone. Quiet about it." },
+      { title: "Pipe Down", album: "Certified Lover Boy", year: 2021, why: "The angriest three minutes on Certified Lover Boy." },
+      { title: "Falling Back", album: "Honestly, Nevermind", year: 2022, why: "House drums under a chorus about being let down again." },
+      { title: "Tried Our Best", album: "For All the Dogs", year: 2023, why: "The closest thing to closure on For All the Dogs." }
     ]
   },
   {
@@ -36,7 +42,13 @@ const MOODS = [
       { title: "Worst Behavior", album: "Nothing Was the Same", year: 2013, why: "Loud, petty, and perfect at full volume." },
       { title: "First Person Shooter", album: "For All the Dogs", year: 2023, why: "Two rappers in a good mood taking turns going off." },
       { title: "Way 2 Sexy", album: "Certified Lover Boy", year: 2021, why: "The Right Said Fred sample nobody asked for and everybody yells." },
-      { title: "Jumbotron Shit Poppin", album: "Her Loss", year: 2022, why: "Pure momentum from the first bar." }
+      { title: "Jumbotron Shit Poppin", album: "Her Loss", year: 2022, why: "Pure momentum from the first bar." },
+      { title: "HYFR (Hell Ya Fucking Right)", album: "Take Care", year: 2011, why: "Lil Wayne, a bar mitzvah video, and a hook you can't say quietly." },
+      { title: "10 Bands", album: "If You're Reading This It's Too Late", year: 2015, why: "Counting money with the blinds closed." },
+      { title: "Portland", album: "More Life", year: 2017, why: "Quavo, Travis Scott, and the flute beat." },
+      { title: "Knife Talk", album: "Certified Lover Boy", year: 2021, why: "21 Savage and Project Pat on the hardest beat on the album." },
+      { title: "Jimmy Cooks", album: "Honestly, Nevermind", year: 2022, why: "A house album ends with 21 Savage and a beat switch." },
+      { title: "IDGAF", album: "For All the Dogs", year: 2023, why: "Yeat feature. Sounds like the ceiling is caving in, on purpose." }
     ]
   },
   {
@@ -55,7 +67,13 @@ const MOODS = [
       { title: "After Dark", album: "Scorpion", year: 2018, why: "Ty Dolla $ign and Static Major on a slow burner." },
       { title: "The Motion", album: "Single", year: 2013, why: "Sampha on the hook, everything else stays out of the way. Collected on Care Package in 2019." },
       { title: "Connect", album: "Nothing Was the Same", year: 2013, why: "Houston-slow, screwed vocals, a beat that barely moves." },
-      { title: "Sticky", album: "Honestly, Nevermind", year: 2022, why: "House drums for the last hour of the night." }
+      { title: "Sticky", album: "Honestly, Nevermind", year: 2022, why: "House drums for the last hour of the night." },
+      { title: "Crew Love", album: "Take Care", year: 2011, why: "The Weeknd on the hook, the whole city awake." },
+      { title: "Hotline Bling", album: "Views", year: 2016, why: "The Timmy Thomas loop and the dancing you already know." },
+      { title: "Too Much", album: "Nothing Was the Same", year: 2013, why: "Sampha's piano and a verse about his family." },
+      { title: "Faithful", album: "Views", year: 2016, why: "Pimp C and dvsn on a song that moves at walking pace." },
+      { title: "Spin Bout U", album: "Her Loss", year: 2022, why: "The soft one on Her Loss." },
+      { title: "Time Flies", album: "Dark Lane Demo Tapes", year: 2020, why: "Driving to someone's place at 3am and knowing better." }
     ]
   },
   {
@@ -74,7 +92,13 @@ const MOODS = [
       { title: "Star67", album: "If You're Reading This It's Too Late", year: 2015, why: "Calling from a blocked number, half laughing." },
       { title: "No Friends in the Industry", album: "Certified Lover Boy", year: 2021, why: "Says exactly what the title says." },
       { title: "Childs Play", album: "Views", year: 2016, why: "Arguing at the Cheesecake Factory, immortalised." },
-      { title: "7AM on Bridle Path", album: "Certified Lover Boy", year: 2021, why: "A timestamp track with a specific target." }
+      { title: "7AM on Bridle Path", album: "Certified Lover Boy", year: 2021, why: "A timestamp track with a specific target." },
+      { title: "Summer Sixteen", album: "Single", year: 2016, why: "Looking for revenge, all summer sixteen." },
+      { title: "Diplomatic Immunity", album: "Scary Hours", year: 2018, why: "No hook, four minutes, everybody's name comes up." },
+      { title: "I'm Upset", album: "Scorpion", year: 2018, why: "The Degrassi reunion video. The song is about the money." },
+      { title: "Can't Take a Joke", album: "Scorpion", year: 2018, why: "For when they can't." },
+      { title: "Circo Loco", album: "Her Loss", year: 2022, why: "The Daft Punk flip, and the verse everyone argued about." },
+      { title: "Fear of Heights", album: "For All the Dogs", year: 2023, why: "Bitter, short, and about someone specific." }
     ]
   },
   {
@@ -93,7 +117,13 @@ const MOODS = [
       { title: "Weston Road Flows", album: "Views", year: 2016, why: "Mary J. Blige sample, Toronto street names, no hook." },
       { title: "Do Not Disturb", album: "More Life", year: 2017, why: "Closing the door on a chapter and saying so." },
       { title: "Fancy", album: "Thank Me Later", year: 2010, why: "Swizz Beatz, T.I., and a chorus for your best friends." },
-      { title: "Uptown", album: "So Far Gone", year: 2009, why: "Bun B and Lil Wayne on the first track that felt like Toronto." }
+      { title: "Uptown", album: "So Far Gone", year: 2009, why: "Bun B and Lil Wayne on the first track that felt like Toronto." },
+      { title: "Lust for Life", album: "So Far Gone", year: 2009, why: "The first thing you hear on So Far Gone." },
+      { title: "The Calm", album: "So Far Gone", year: 2009, why: "Recorded before anything was certain. Sounds like it." },
+      { title: "Miss Me", album: "Thank Me Later", year: 2010, why: "Lil Wayne on the hook, Drake still new to all of it." },
+      { title: "Thank Me Now", album: "Thank Me Later", year: 2010, why: "The last song on the first album, already looking back." },
+      { title: "Wu-Tang Forever", album: "Nothing Was the Same", year: 2013, why: "An 'It's Yourz' sample and a song that isn't really about Wu-Tang." },
+      { title: "Views", album: "Views", year: 2016, why: "The title track, Toronto in winter, right before Hotline Bling." }
     ]
   },
   {
@@ -112,7 +142,13 @@ const MOODS = [
       { title: "Trophies", album: "Young Money: Rise of an Empire", year: 2014, why: "Hit-Boy horns for when you don't need the award." },
       { title: "Laugh Now Cry Later", album: "Single", year: 2020, why: "Lil Durk feature, Nike campus video, pure ease." },
       { title: "Under Ground Kings", album: "Take Care", year: 2011, why: "The Take Care track for people who want bars." },
-      { title: "Elevate", album: "Scorpion", year: 2018, why: "Short, clean, and sure of itself." }
+      { title: "Elevate", album: "Scorpion", year: 2018, why: "Short, clean, and sure of itself." },
+      { title: "6 God", album: "If You're Reading This It's Too Late", year: 2015, why: "Boi-1da drums and a title he gave himself." },
+      { title: "Still Here", album: "Views", year: 2016, why: "Two minutes of reminding you." },
+      { title: "Free Smoke", album: "More Life", year: 2017, why: "The opener. Sounds like walking into a room you paid for." },
+      { title: "Sandra's Rose", album: "Scorpion", year: 2018, why: "A DJ Premier beat and a verse that earns it." },
+      { title: "Fair Trade", album: "Certified Lover Boy", year: 2021, why: "Losing friends and finding peace, with Travis Scott." },
+      { title: "What's Next", album: "Scary Hours 2", year: 2021, why: "The 2021 reset. Short, sure, over in three minutes." }
     ]
   },
   {
@@ -131,7 +167,13 @@ const MOODS = [
       { title: "Search & Rescue", album: "Single", year: 2023, why: "Asking someone to pull him out of his lifestyle, with a Kim Kardashian clip in the middle." },
       { title: "Shut It Down", album: "Thank Me Later", year: 2010, why: "Almost seven minutes with The-Dream about someone who stops the room." },
       { title: "Nokia", album: "$ome $exy $ongs 4 U", year: 2025, why: "The phone-ringing beat that took over 2025." },
-      { title: "Race My Mind", album: "Certified Lover Boy", year: 2021, why: "The song that runs while you wait for a reply." }
+      { title: "Race My Mind", album: "Certified Lover Boy", year: 2021, why: "The song that runs while you wait for a reply." },
+      { title: "Own It", album: "Nothing Was the Same", year: 2013, why: "The one about wanting more than the arrangement." },
+      { title: "Practice", album: "Take Care", year: 2011, why: "Back That Azz Up, slowed down and made sincere." },
+      { title: "With You", album: "Views", year: 2016, why: "PartyNextDoor on a hook that sways." },
+      { title: "Summer Games", album: "Scorpion", year: 2018, why: "Eighties synths and a summer that ended too fast." },
+      { title: "Blem", album: "More Life", year: 2017, why: "Blem means high. The song means honest." },
+      { title: "TSU", album: "Certified Lover Boy", year: 2021, why: "Slow, warm, and a little too aware of itself." }
     ]
   },
   {
@@ -150,7 +192,13 @@ const MOODS = [
       { title: "The Resistance", album: "Thank Me Later", year: 2010, why: "What happens to the people you leave behind on the way up." },
       { title: "Survival", album: "Scorpion", year: 2018, why: "The album opener that takes stock of the career." },
       { title: "Fireworks", album: "Thank Me Later", year: 2010, why: "The first song on the first album. Alicia Keys on the hook." },
-      { title: "Deep Pockets", album: "Dark Lane Demo Tapes", year: 2020, why: "Late-career Drake still talking about the work." }
+      { title: "Deep Pockets", album: "Dark Lane Demo Tapes", year: 2020, why: "Late-career Drake still talking about the work." },
+      { title: "Lose You", album: "More Life", year: 2017, why: "Five minutes on what it costs to stay on top." },
+      { title: "Can't Have Everything", album: "More Life", year: 2017, why: "Ends with a voicemail from his mum. Worth waiting for." },
+      { title: "4PM in Calabasas", album: "Single", year: 2016, why: "The 2016 timestamp. Collected on Care Package in 2019." },
+      { title: "When to Say When", album: "Dark Lane Demo Tapes", year: 2020, why: "Rapping over the Song Cry beat about knowing when to stop." },
+      { title: "The Remorse", album: "Certified Lover Boy", year: 2021, why: "The album closer, taking stock of everyone who helped." },
+      { title: "Is There More", album: "Scorpion", year: 2018, why: "The question at the end of the A side." }
     ]
   }
 ];

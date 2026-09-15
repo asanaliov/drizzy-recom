@@ -17,6 +17,7 @@ const COVERS = {
     "Her Loss": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/e1/6e/6a/e16e6a89-3e6d-1936-1a9c-b51680bcd4c1/22UM1IM29132.rgb.jpg/300x300bb.jpg",
     "For All the Dogs": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/68/8b/a9/688ba9aa-4c90-c630-63c3-b6a7a0d945c2/23UM1IM56239.rgb.jpg/300x300bb.jpg",
     "$ome $exy $ongs 4 U": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/23/7c/a2/237ca270-9926-4b78-be81-410b6fc85f47/50291.jpg/300x300bb.jpg",
+    "Scary Hours 2": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/9f/e2/93/9fe2935e-da8e-8951-26cc-3454c52a2831/21UMGIM18577.rgb.jpg/300x300bb.jpg",
     "Young Money: Rise of an Empire": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/be/cc/60/becc60ec-25a1-8a88-1320-6c5ab8c42131/14UMGIM06972.rgb.jpg/300x300bb.jpg",
     "The Best in the World Pack": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/ed/ec/95edecd9-ae39-f81c-5c96-9f20957104ec/19UMGIM54645.rgb.jpg/300x300bb.jpg"
   },
@@ -27,6 +28,9 @@ const COVERS = {
     "Search & Rescue": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/73/35/8b/73358b42-c950-099f-6b21-6527d1ca4f85/23UMGIM39824.rgb.jpg/300x300bb.jpg",
     "Family Matters": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3f/c5/9c/3fc59cb5-c6a5-e992-f391-86f2fbb37ce8/24UMGIM51916.rgb.jpg/300x300bb.jpg",
     "The Motion": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg",
+    "Summer Sixteen": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/61/2b/60/612b603c-2764-6536-c553-98f6fbe0fe98/00602547810632.rgb.jpg/300x300bb.jpg",
+    "Diplomatic Immunity": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/4f/61/ef/4f61efab-6b4b-2472-73b9-5e9149ce30e9/00602567926917.rgb.jpg/300x300bb.jpg",
+    "4PM in Calabasas": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg",
     "5AM in Toronto": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg"
   }
 };
