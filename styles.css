@@ -168,26 +168,34 @@ main {
   opacity: calc(1 - var(--p));
 }
 
+/* A thin line running down to a chevron: the only cue that there's more below */
 .scroll-hint {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px 11px;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
+  gap: 2px;
+  margin-top: 8px;
+  padding: 8px 16px;
+  color: var(--ink-3);
   text-decoration: none;
-  font-size: 14px;
-  color: var(--ink);
-  transition: border-color 200ms, color 200ms;
+  transition: color 200ms;
+  opacity: calc(1 - var(--p));
 }
 
-.scroll-hint:hover { border-color: var(--accent); color: var(--accent); }
+.scroll-hint:hover { color: var(--accent); }
+
+.scroll-hint-line {
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, transparent, currentColor);
+}
 
 .scroll-hint svg { animation: nudge 2.4s ease-in-out infinite; }
 
 @keyframes nudge {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(3px); }
+  50% { transform: translateY(4px); }
 }
 
 /* Mood picker: one tile per mood, name and what it's for */
@@ -291,6 +299,7 @@ main {
 .scroll-hint:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+  border-radius: 8px;
 }
 
 /* Result */
