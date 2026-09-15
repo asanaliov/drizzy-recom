@@ -19,10 +19,15 @@
   </header>
 
   <main>
-    <section class="picker" aria-labelledby="picker-heading">
-      <img class="owl owl-hero" src="images/owl.png" alt="" width="400" height="484">
-      <h1 id="picker-heading">What's the mood?</h1>
-      <div class="moods" role="group" aria-label="Moods" data-moods></div>
+    <section class="hero">
+      <div class="picker" aria-labelledby="picker-heading">
+        <h1 id="picker-heading">What's the mood?</h1>
+        <div class="moods" role="group" aria-label="Moods" data-moods></div>
+      </div>
+      <div class="orbit-wrap" aria-hidden="true">
+        <div class="orbit" data-orbit></div>
+        <img class="owl owl-center" src="images/owl.png" alt="" width="400" height="484">
+      </div>
     </section>
 
     <section class="result" data-result hidden aria-live="polite">
@@ -37,10 +42,11 @@
   </main>
 
   <footer class="foot">
-    <p>Tracks link out to YouTube and Spotify search. Pools are hand-picked and opinionated.</p>
+    <p>Tracks link out to YouTube and Spotify search. Album art from Apple Music. Pools are hand-picked and opinionated.</p>
   </footer>
 
   <script src="moods.js"></script>
+  <script src="covers.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -10,7 +10,8 @@
     shuffle: document.querySelector("[data-shuffle]"),
     copy: document.querySelector("[data-copy]"),
     home: document.querySelector("[data-home]"),
-    count: document.querySelector("[data-count]")
+    count: document.querySelector("[data-count]"),
+    orbit: document.querySelector("[data-orbit]")
   };
 
   const total = MOODS.reduce((n, m) => n + m.tracks.length, 0);
@@ -18,6 +19,74 @@
 
   let current = null;
   let lastPick = [];
+
+  function coverFor(track) {
+    return COVERS.byTitle[track.title] || COVERS.byAlbum[track.album] || null;
+  }
+
+  function coverNode(track, size) {
+    const url = coverFor(track);
+    if (!url) {
+      const d = document.createElement("div");
+      d.className = "fallback";
+      return d;
+    }
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "";
+    img.width = size;
+    img.height = size;
+    img.loading = "lazy";
+    img.decoding = "async";
+    return img;
+  }
+
+  // Every distinct cover across all moods, oldest first, for the home ring
+  const allCovers = (() => {
+    const seen = new Map();
+    MOODS.flatMap((m) => m.tracks)
+      .sort((x, y) => x.year - y.year)
+      .forEach((t) => {
+        const url = coverFor(t);
+        if (url && !seen.has(url)) seen.set(url, t);
+      });
+    return [...seen.values()];
+  })();
+
+  function renderOrbit(tracks) {
+    // Distinct covers only; an album showing twice reads as a glitch
+    const seen = new Set();
+    const items = tracks.filter((t) => {
+      const key = coverFor(t) || "owl:" + t.title;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+    els.orbit.replaceChildren();
+    const ringPx = els.orbit.clientWidth || 300;
+    // A handful of covers gets bigger tiles; a full ring gets smaller ones
+    const base = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--cover")) || 56;
+    const coverPx = items.length <= 6 ? Math.round(base * 1.3) : base;
+    els.orbit.style.setProperty("--cover", coverPx + "px");
+    const r = Math.round(ringPx / 2 - coverPx / 2);
+
+    // Only as many covers as fit around the ring without touching
+    const max = Math.max(3, Math.floor((2 * Math.PI * r) / (coverPx * 1.25)));
+    const shown = items.length > max
+      ? Array.from({ length: max }, (_, i) => items[Math.floor((i * items.length) / max)])
+      : items;
+
+    const n = shown.length;
+    shown.forEach((t, i) => {
+      const el = document.createElement("div");
+      el.className = "orbit-item";
+      el.style.setProperty("--a", (i * 360) / n + "deg");
+      el.style.setProperty("--r", r + "px");
+      el.style.animationDelay = i * 40 + "ms";
+      el.appendChild(coverNode(t, 56));
+      els.orbit.appendChild(el);
+    });
+  }
 
   // Build the mood buttons
   MOODS.forEach((mood) => {
@@ -59,6 +128,10 @@
       const li = document.createElement("li");
       li.className = "track";
 
+      const cover = document.createElement("div");
+      cover.className = "track-cover";
+      cover.appendChild(coverNode(t, 44));
+
       const body = document.createElement("div");
       const title = document.createElement("p");
       title.className = "track-title";
@@ -83,7 +156,7 @@
         links.appendChild(a);
       });
 
-      li.append(body, links);
+      li.append(cover, body, links);
       els.tracks.appendChild(li);
     });
   }
@@ -96,9 +169,12 @@
       b.setAttribute("aria-pressed", String(!!mood && b.dataset.id === mood.id));
     });
 
+    document.body.classList.toggle("home", !mood);
+
     if (!mood) {
       els.result.hidden = true;
       lastPick = [];
+      renderOrbit(allCovers);
       return;
     }
 
@@ -106,18 +182,22 @@
     els.line.textContent = mood.line;
     lastPick = pickFrom(mood);
     renderTracks(lastPick);
+    renderOrbit(lastPick);
 
     // Re-run the entrance so a new mood reads as a new page
     els.result.hidden = true;
     void els.result.offsetHeight;
     els.result.hidden = false;
-    els.result.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.innerWidth <= 760) {
+      els.result.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   function shuffle() {
     if (!current) return;
     lastPick = pickFrom(current);
     renderTracks(lastPick);
+    renderOrbit(lastPick);
     els.shuffle.blur();
   }
 
@@ -149,6 +229,13 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
   window.addEventListener("hashchange", () => show(fromHash()));
+
+  // Ring radius depends on layout width
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => renderOrbit(current ? lastPick : allCovers), 150);
+  });
 
   show(fromHash());
 })();

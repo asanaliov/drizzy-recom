@@ -1,14 +1,17 @@
 :root {
   --bg: #000000;
   --accent: #a08c5c;
+  --gold-2: #c4ad74;
   --ink: #f4f0e6;
   --ink-2: rgba(244, 240, 230, 0.62);
   --ink-3: rgba(244, 240, 230, 0.36);
   --rule: rgba(244, 240, 230, 0.14);
   --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --gold-2: #c4ad74;
-  --gutter: clamp(20px, 5vw, 72px);
+  --gutter: clamp(20px, 5vw, 64px);
+  --wrap: 1120px;
+  --ring: clamp(240px, 30vw, 340px);
+  --cover: 56px;
 }
 
 * { box-sizing: border-box; }
@@ -21,8 +24,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
@@ -36,10 +39,10 @@ a { color: inherit; }
 .top {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 24px var(--gutter) 0;
+  align-items: center;
+  padding: 18px var(--gutter) 0;
   width: 100%;
-  max-width: 1120px;
+  max-width: var(--wrap);
   margin: 0 auto;
 }
 
@@ -67,43 +70,40 @@ a { color: inherit; }
 }
 
 .count {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
 
 main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 0 var(--gutter);
   width: 100%;
-  max-width: 1120px;
+  max-width: var(--wrap);
   margin: 0 auto;
 }
 
-/* Picker */
-.picker {
-  position: relative;
-  padding-top: clamp(48px, 12vh, 120px);
-}
+/* With no mood picked, the hero sits in the middle of the screen */
+body.home main { justify-content: center; }
+body.home .hero { padding-bottom: clamp(24px, 8vh, 80px); }
 
-/* The owl sits behind the question, gold on black, mostly dark */
-.owl-hero {
-  position: absolute;
-  right: 0;
-  top: clamp(8px, 3vh, 32px);
-  width: clamp(180px, 24vw, 300px);
-  height: auto;
-  opacity: 0.55;
-  pointer-events: none;
-  z-index: -1;
+/* Hero: question and chips on the left, covers orbiting the owl on the right */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ring);
+  align-items: center;
+  gap: 24px clamp(24px, 5vw, 72px);
+  padding-top: clamp(24px, 6vh, 56px);
 }
 
 .picker h1 {
-  margin: 0 0 28px;
+  margin: 0 0 18px;
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: clamp(32px, 4.6vw, 52px);
   line-height: 1;
   letter-spacing: -0.01em;
 }
@@ -111,8 +111,8 @@ main {
 .moods {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 12px;
-  max-width: 760px;
+  gap: 8px 8px;
+  max-width: 640px;
 }
 
 .mood {
@@ -121,8 +121,8 @@ main {
   background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 17px;
-  padding: 11px 20px 12px;
+  font-size: 15px;
+  padding: 8px 16px 9px;
   border-radius: 999px;
   cursor: pointer;
   transition: border-color 200ms, background-color 200ms, color 200ms, transform 200ms;
@@ -147,9 +147,70 @@ main {
   outline-offset: 3px;
 }
 
+/* Orbit */
+.orbit-wrap {
+  position: relative;
+  width: var(--ring);
+  height: var(--ring);
+  justify-self: end;
+}
+
+.owl-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  animation: spin 90s linear infinite;
+}
+
+.orbit-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--cover);
+  height: var(--cover);
+  margin: calc(var(--cover) / -2) 0 0 calc(var(--cover) / -2);
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 0 1px rgba(160, 140, 92, 0.35), 0 8px 24px rgba(0, 0, 0, 0.6);
+  /* --a is this item's angle; --r the ring radius. The inner counter-spin keeps art upright. */
+  transform: rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a)));
+  animation: fadein 600ms both;
+}
+
+.orbit-item img,
+.orbit-item .fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: spin 90s linear infinite reverse;
+}
+
+.fallback {
+  background: #000 url("images/owl.png") center / 50% auto no-repeat;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Result */
 .result {
-  padding: clamp(40px, 8vh, 80px) 0 40px;
+  padding: clamp(28px, 5vh, 48px) 0 32px;
 }
 
 .result-mood {
@@ -157,23 +218,23 @@ main {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(88px, 20vw, 232px);
-  line-height: 0.86;
+  font-size: clamp(56px, 11vw, 120px);
+  line-height: 0.9;
   letter-spacing: -0.03em;
   color: var(--accent);
   overflow-wrap: anywhere;
 }
 
 .result-line {
-  margin: 20px 0 0;
-  max-width: 44ch;
-  font-size: 19px;
+  margin: 10px 0 0;
+  max-width: 48ch;
+  font-size: 16px;
   color: var(--ink-2);
 }
 
 .tracks {
   list-style: none;
-  margin: 44px 0 0;
+  margin: 24px 0 0;
   padding: 0;
   border-top: 1px solid var(--rule);
   counter-reset: track;
@@ -182,10 +243,10 @@ main {
 .track {
   counter-increment: track;
   display: grid;
-  grid-template-columns: 2.4em 1fr auto;
-  gap: 8px 16px;
-  align-items: baseline;
-  padding: 18px 0;
+  grid-template-columns: 1.6em 44px minmax(0, 1fr) auto;
+  gap: 4px 14px;
+  align-items: center;
+  padding: 11px 0;
   border-bottom: 1px solid var(--rule);
 }
 
@@ -193,34 +254,51 @@ main {
   content: counter(track, decimal-leading-zero);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 22px;
+  font-size: 18px;
   color: var(--accent);
+}
+
+.track-cover {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 0 1px rgba(160, 140, 92, 0.3);
+}
+
+.track-cover img,
+.track-cover .fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .track-title {
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
 }
 
 .track-meta {
-  margin: 2px 0 0;
-  font-size: 14px;
+  margin: 0;
+  font-size: 13px;
   color: var(--ink-3);
 }
 
 .track-why {
-  margin: 8px 0 0;
-  max-width: 60ch;
+  margin: 3px 0 0;
+  max-width: 64ch;
   color: var(--ink-2);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .track-links {
   display: flex;
-  gap: 14px;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 13px;
   white-space: nowrap;
 }
 
@@ -235,16 +313,16 @@ main {
 
 .actions {
   display: flex;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .btn {
   appearance: none;
   font: inherit;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  padding: 12px 22px 13px;
+  padding: 10px 20px 11px;
   border-radius: 999px;
   border: 1px solid var(--accent);
   background: var(--accent);
@@ -267,19 +345,19 @@ main {
 
 /* Footer */
 .foot {
-  padding: 40px var(--gutter) 28px;
+  padding: 28px var(--gutter) 22px;
   width: 100%;
-  max-width: 1120px;
+  max-width: var(--wrap);
   margin: 0 auto;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--ink-3);
 }
 
 .foot p { margin: 0; max-width: 60ch; }
 
-/* Result entrance — one moment, answers the click */
+/* Result entrance: one moment, answers the click */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
 
@@ -287,12 +365,12 @@ main {
 .result:not([hidden]) .result-line,
 .result:not([hidden]) .tracks,
 .result:not([hidden]) .actions {
-  animation: rise 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: rise 450ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.result:not([hidden]) .result-line { animation-delay: 60ms; }
-.result:not([hidden]) .tracks { animation-delay: 120ms; }
-.result:not([hidden]) .actions { animation-delay: 180ms; }
+.result:not([hidden]) .result-line { animation-delay: 50ms; }
+.result:not([hidden]) .tracks { animation-delay: 100ms; }
+.result:not([hidden]) .actions { animation-delay: 150ms; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -301,16 +379,25 @@ main {
   }
 }
 
+@media (max-width: 760px) {
+  :root { --ring: 240px; --cover: 48px; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 16px;
+  }
+  .orbit-wrap {
+    order: -1;
+    justify-self: center;
+  }
+  .picker h1 { text-align: center; }
+  .moods { justify-content: center; max-width: none; }
+}
+
 @media (max-width: 600px) {
-  .top { padding-top: 18px; }
-  .owl-hero { width: 120px; top: 0; opacity: 0.35; }
   .track {
-    grid-template-columns: 2.2em 1fr;
+    grid-template-columns: 1.4em 40px minmax(0, 1fr);
   }
-  .track-links {
-    grid-column: 2;
-  }
-  .result-line { font-size: 17px; }
-  .track-title { font-size: 18px; }
+  .track-cover { width: 40px; height: 40px; }
+  .track-links { grid-column: 3; }
   .actions { flex-wrap: wrap; }
 }
