@@ -117,15 +117,18 @@
   });
 
   function pickFrom(mood) {
-    // Avoid repeating the exact set just shown when the pool allows it
-    const pool = mood.tracks.slice();
+    // A lead track always sits at the top; the rest is drawn from the pool,
+    // avoiding the exact set just shown when the pool allows it
+    const lead = mood.lead ? mood.tracks.find((t) => t.title === mood.lead) : null;
+    const pool = mood.tracks.filter((t) => t !== lead);
     const previous = new Set(lastPick.map((t) => t.title));
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
     pool.sort((a, b) => (previous.has(a.title) ? 1 : 0) - (previous.has(b.title) ? 1 : 0));
-    return pool.slice(0, PICK);
+    const picks = pool.slice(0, lead ? PICK - 1 : PICK);
+    return lead ? [lead, ...picks] : picks;
   }
 
   function searchUrl(site, track) {

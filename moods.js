@@ -1,4 +1,4 @@
-// Every mood is a pool of tracks.
+// Every mood is a pool of tracks. A mood with a `lead` always shows that track first.
 // The app draws five at a time from the pool.
 const MOODS = [
   {
@@ -35,7 +35,6 @@ const MOODS = [
     tracks: [
       { title: "Nonstop", album: "Scorpion", year: 2018, why: "Tay Keith beat, no chorus needed." },
       { title: "Energy", album: "If You're Reading This It's Too Late", year: 2015, why: "Every line is a threat you can shout along to." },
-      { title: "Started From the Bottom", album: "Nothing Was the Same", year: 2013, why: "The obvious one. Still works every time." },
       { title: "0 to 100 / The Catch Up", album: "Single", year: 2014, why: "The first half of this song is a whole workout." },
       { title: "Headlines", album: "Take Care", year: 2011, why: "Boi-1da drums and the horn that ends every set." },
       { title: "Know Yourself", album: "If You're Reading This It's Too Late", year: 2015, why: "Running through the 6 with your woes." },
@@ -144,11 +143,9 @@ const MOODS = [
       { title: "Nice for What", album: "Scorpion", year: 2018, why: "Lauryn Hill sample, bounce drums, main character energy." },
       { title: "Tuscan Leather", album: "Nothing Was the Same", year: 2013, why: "Six minutes of rapping with no hook to hide behind." },
       { title: "Pound Cake / Paris Morton Music 2", album: "Nothing Was the Same", year: 2013, why: "Jay-Z shows up and Drake still wins the song." },
-      { title: "Money in the Grave", album: "The Best in the World Pack", year: 2019, why: "Dropped the day after the Raptors won the title. Sounds like it." },
       { title: "Champagne Poetry", album: "Certified Lover Boy", year: 2021, why: "The Beatles sample and the best verse on the album." },
       { title: "The Motto", album: "Take Care", year: 2011, why: "Gave the world YOLO. Never apologised." },
       { title: "Gyalchester", album: "More Life", year: 2017, why: "I know I said top five, but I'm top two." },
-      { title: "Trophies", album: "Young Money: Rise of an Empire", year: 2014, why: "Hit-Boy horns for when you don't need the award." },
       { title: "Laugh Now Cry Later", album: "Single", year: 2020, why: "Lil Durk feature, Nike campus video, pure ease." },
       { title: "Under Ground Kings", album: "Take Care", year: 2011, why: "The Take Care track for people who want bars." },
       { title: "Elevate", album: "Scorpion", year: 2018, why: "Short, clean, and sure of itself." },
@@ -158,8 +155,32 @@ const MOODS = [
       { title: "Sandra's Rose", album: "Scorpion", year: 2018, why: "A DJ Premier beat and a verse that earns it." },
       { title: "Fair Trade", album: "Certified Lover Boy", year: 2021, why: "Losing friends and finding peace, with Travis Scott." },
       { title: "What's Next", album: "Scary Hours 2", year: 2021, why: "The 2021 reset. Short, sure, over in three minutes." },
-      { title: "No Secret", album: "God Did", year: 2022, why: "A DJ Khaled beat and a verse that doesn't hide anything." },
       { title: "National Treasures", album: "Iceman", year: 2026, why: "Toronto, the Raptors, and the line about the Iceman being a nice man." }
+    ]
+  },
+  {
+    id: "made-it",
+    name: "Made it",
+    line: "For the day it finally happened, and everyone who said it wouldn't.",
+    lead: "No Secret",
+    tracks: [
+      { title: "No Secret", album: "God Did", year: 2022, why: "A DJ Khaled beat and a verse that doesn't hide anything. Start here." },
+      { title: "Started From the Bottom", album: "Nothing Was the Same", year: 2013, why: "The obvious one. Still works every time." },
+      { title: "Trophies", album: "Young Money: Rise of an Empire", year: 2014, why: "Hit-Boy horns for when you don't need the award." },
+      { title: "Money in the Grave", album: "The Best in the World Pack", year: 2019, why: "Dropped the day after the Raptors won the title. Sounds like it." },
+      { title: "Legend", album: "If You're Reading This It's Too Late", year: 2015, why: "Opens the tape by telling you what he'll be when he's gone." },
+      { title: "All Me", album: "Nothing Was the Same", year: 2013, why: "2 Chainz and Big Sean on a song about whose work it was." },
+      { title: "Away from Home", album: "For All the Dogs", year: 2023, why: "A long look back at how far the drive was." },
+      { title: "Wants and Needs", album: "Scary Hours 2", year: 2021, why: "Lil Baby feature and a list of what's already handled." },
+      { title: "Lemon Pepper Freestyle", album: "Scary Hours 2", year: 2021, why: "Rick Ross, a Sunday-morning beat, and six minutes of grown-man flex." },
+      { title: "Major Distribution", album: "Her Loss", year: 2022, why: "21 Savage and Drake reading the numbers out loud." },
+      { title: "Glow", album: "More Life", year: 2017, why: "Kanye on the hook. About watching each other shine." },
+      { title: "Sacrifices", album: "More Life", year: 2017, why: "2 Chainz and Young Thug on what it cost to get here." },
+      { title: "Pop Style", album: "Views", year: 2016, why: "Slow, heavy, and completely sure of the outcome." },
+      { title: "Dreams Money Can Buy", album: "Single", year: 2011, why: "The 2011 loosie about the things you can finally afford. Collected on Care Package." },
+      { title: "Papi's Home", album: "Certified Lover Boy", year: 2021, why: "Back in the building, and letting the building know." },
+      { title: "Talk Up", album: "Scorpion", year: 2018, why: "DJ Premier scratches, a Jay-Z verse, and no doubt in the room." },
+      { title: "War", album: "Dark Lane Demo Tapes", year: 2020, why: "UK drill from Toronto, about the people who came up with him." }
     ]
   },
   {

@@ -34,6 +34,7 @@ const COVERS = {
     "The Motion": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg",
     "Summer Sixteen": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/61/2b/60/612b603c-2764-6536-c553-98f6fbe0fe98/00602547810632.rgb.jpg/300x300bb.jpg",
     "Diplomatic Immunity": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/4f/61/ef/4f61efab-6b4b-2472-73b9-5e9149ce30e9/00602567926917.rgb.jpg/300x300bb.jpg",
+    "Dreams Money Can Buy": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg",
     "4PM in Calabasas": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg",
     "Greece": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f1/46/87/f1468775-3e7c-083b-5285-b10bb18c30c3/886448646341.jpg/300x300bb.jpg",
     "5AM in Toronto": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/34/e5/46/34e546b6-94c9-960e-cd35-4f35ffcd6860/19UMGIM71794.rgb.jpg/300x300bb.jpg"

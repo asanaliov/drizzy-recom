@@ -2,7 +2,7 @@
 
 *If you're reading this, it's not too late.*
 
-Started from the bottom of a mood, now the whole playlist's here. Pick how you feel, get five songs from the 6 God that match it. Black and gold, a hundred and fifty-nine tracks, eight moods, every one with a reason it made the cut. No cap, no filler, no skips.
+Started from the bottom of a mood, now the whole playlist's here. Pick how you feel, get five songs from the 6 God that match it. Black and gold, a hundred and seventy-two tracks, nine moods, every one with a reason it made the cut. No cap, no filler, no skips.
 
 Hit **Five more** and the pool runs it back with a new set. Copy the link and send somebody the mood directly, like `#heartbroken` when texts go green, or `#late-night` when you're up at 6PM in New York and it's actually 3AM in Toronto.
 
@@ -26,6 +26,7 @@ Then pull up to <http://localhost:8000>. Or just open `index.html` and let it ri
 | Petty | you're right, they're wrong, and you want it on record |
 | Nostalgic | old photos, old friends, the year everything changed |
 | Confident | you walk in like you own the place, because tonight you do |
+| Made it | it finally happened, and everyone said it wouldn't |
 | In love | the one you're texting right now |
 | Grinding | the early morning and the plan nobody else believes in |
 
