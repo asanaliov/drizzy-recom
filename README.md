@@ -39,7 +39,7 @@ Everything lives in `moods.js`. Each mood has a colour pair and a pool of tracks
 
 Think a song's missing? Add a line to the right pool and reload. Use `album: "Single"` for the loosies. If you think Marvins Room should be under Hyped, that's between you and your woes.
 
-Tracks link out to YouTube and Spotify search instead of hardcoded IDs, so when a link changes the app doesn't. Know yourself, know your worth, know your fallbacks.
+Album covers come from Apple's public artwork CDN (`covers.js`). Tracks link out to YouTube and Spotify search instead of hardcoded IDs, so when a link changes the app doesn't. Know yourself, know your worth, know your fallbacks.
 
 ## License
 
