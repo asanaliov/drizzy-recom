@@ -12,12 +12,12 @@ const MOODS = [
       { title: "Fire & Desire", album: "Views", year: 2016, why: "Wanting someone you know you can't have back." },
       { title: "Shot for Me", album: "Take Care", year: 2011, why: "Toasting the people who moved on before you did." },
       { title: "From Time", album: "Nothing Was the Same", year: 2013, why: "Jhené Aiko asks the questions you've been avoiding." },
-      { title: "Karaoke", album: "Thank Me Later", year: 2010, why: "The first thing you hear on the first album is a breakup." },
+      { title: "Karaoke", album: "Thank Me Later", year: 2010, why: "Track two on the first album, and it's already a breakup." },
       { title: "Texts Go Green", album: "Honestly, Nevermind", year: 2022, why: "Blocked, dancing anyway." },
-      { title: "Hours in Silence", album: "Her Loss", year: 2022, why: "Seven minutes of overthinking set to a slow drum." },
+      { title: "Hours in Silence", album: "Her Loss", year: 2022, why: "Nearly seven minutes of overthinking set to a slow drum." },
       { title: "Sooner Than Later", album: "So Far Gone", year: 2009, why: "Early, raw, and already sad about someone." },
-      { title: "U With Me?", album: "Views", year: 2016, why: "Reading old messages and asking a question you know the answer to." },
-      { title: "Nothings Into Somethings", album: "More Life", year: 2017, why: "Finding out from someone else that they moved on." }
+      { title: "U with Me?", album: "Views", year: 2016, why: "Reading old messages and asking a question you know the answer to." },
+      { title: "Nothings into Somethings", album: "More Life", year: 2017, why: "Finding out from someone else that they moved on." }
     ]
   },
   {
@@ -53,8 +53,8 @@ const MOODS = [
       { title: "Cameras / Good Ones Go Interlude", album: "Take Care", year: 2011, why: "Two songs that drift into each other like a late drive." },
       { title: "Chicago Freestyle", album: "Dark Lane Demo Tapes", year: 2020, why: "Eminem flip, hotel room, city outside the window." },
       { title: "After Dark", album: "Scorpion", year: 2018, why: "Ty Dolla $ign and Static Major on a slow burner." },
-      { title: "The Motion", album: "Care Package", year: 2019, why: "Sampha on the hook, everything else stays out of the way." },
-      { title: "Connect", album: "Nothing Was the Same", year: 2013, why: "Houston-slow, screwed vocals, one of 40's best beats." },
+      { title: "The Motion", album: "Single", year: 2013, why: "Sampha on the hook, everything else stays out of the way. Collected on Care Package in 2019." },
+      { title: "Connect", album: "Nothing Was the Same", year: 2013, why: "Houston-slow, screwed vocals, a beat that barely moves." },
       { title: "Sticky", album: "Honestly, Nevermind", year: 2022, why: "House drums for the last hour of the night." }
     ]
   },
@@ -74,7 +74,7 @@ const MOODS = [
       { title: "Star67", album: "If You're Reading This It's Too Late", year: 2015, why: "Calling from a blocked number, half laughing." },
       { title: "No Friends in the Industry", album: "Certified Lover Boy", year: 2021, why: "Says exactly what the title says." },
       { title: "Childs Play", album: "Views", year: 2016, why: "Arguing at the Cheesecake Factory, immortalised." },
-      { title: "7am on Bridle Path", album: "Certified Lover Boy", year: 2021, why: "A timestamp track with a specific target." }
+      { title: "7AM on Bridle Path", album: "Certified Lover Boy", year: 2021, why: "A timestamp track with a specific target." }
     ]
   },
   {
@@ -105,13 +105,13 @@ const MOODS = [
       { title: "Nice for What", album: "Scorpion", year: 2018, why: "Lauryn Hill sample, bounce drums, main character energy." },
       { title: "Tuscan Leather", album: "Nothing Was the Same", year: 2013, why: "Six minutes of rapping with no hook to hide behind." },
       { title: "Pound Cake / Paris Morton Music 2", album: "Nothing Was the Same", year: 2013, why: "Jay-Z shows up and Drake still wins the song." },
-      { title: "Money in the Grave", album: "The Best in the World Pack", year: 2019, why: "Released the night the Raptors won. Sounds like it." },
+      { title: "Money in the Grave", album: "The Best in the World Pack", year: 2019, why: "Dropped the day after the Raptors won the title. Sounds like it." },
       { title: "Champagne Poetry", album: "Certified Lover Boy", year: 2021, why: "The Beatles sample and the best verse on the album." },
       { title: "The Motto", album: "Take Care", year: 2011, why: "Gave the world YOLO. Never apologised." },
       { title: "Gyalchester", album: "More Life", year: 2017, why: "I know I said top five, but I'm top two." },
-      { title: "Trophies", album: "Single", year: 2014, why: "Hit-Boy horns for when you don't need the award." },
+      { title: "Trophies", album: "Young Money: Rise of an Empire", year: 2014, why: "Hit-Boy horns for when you don't need the award." },
       { title: "Laugh Now Cry Later", album: "Single", year: 2020, why: "Lil Durk feature, Nike campus video, pure ease." },
-      { title: "Underground Kings", album: "Take Care", year: 2011, why: "The Take Care track for people who want bars." },
+      { title: "Under Ground Kings", album: "Take Care", year: 2011, why: "The Take Care track for people who want bars." },
       { title: "Elevate", album: "Scorpion", year: 2018, why: "Short, clean, and sure of itself." }
     ]
   },
@@ -128,8 +128,8 @@ const MOODS = [
       { title: "Get It Together", album: "More Life", year: 2017, why: "Jorja Smith and a Black Coffee beat. Slow, warm." },
       { title: "In My Feelings", album: "Scorpion", year: 2018, why: "Kiki, do you love me? Asked earnestly." },
       { title: "Fountains", album: "Certified Lover Boy", year: 2021, why: "Tems on the hook and an Afrobeats sway." },
-      { title: "Search & Rescue", album: "Single", year: 2023, why: "Take me out of the club, take me out of my ways." },
-      { title: "Shut It Down", album: "Thank Me Later", year: 2010, why: "Six minutes with The-Dream about someone who stops the room." },
+      { title: "Search & Rescue", album: "Single", year: 2023, why: "Asking someone to pull him out of his lifestyle, with a Kim Kardashian clip in the middle." },
+      { title: "Shut It Down", album: "Thank Me Later", year: 2010, why: "Almost seven minutes with The-Dream about someone who stops the room." },
       { title: "Nokia", album: "$ome $exy $ongs 4 U", year: 2025, why: "The phone-ringing beat that took over 2025." },
       { title: "Race My Mind", album: "Certified Lover Boy", year: 2021, why: "The song that runs while you wait for a reply." }
     ]
@@ -144,7 +144,7 @@ const MOODS = [
       { title: "Lord Knows", album: "Take Care", year: 2011, why: "Just Blaze choir, Rick Ross, and no room for doubt." },
       { title: "Furthest Thing", album: "Nothing Was the Same", year: 2013, why: "Somewhere between being famous and staying focused." },
       { title: "6PM in New York", album: "If You're Reading This It's Too Late", year: 2015, why: "A timestamp track that reads like a to-do list." },
-      { title: "5AM in Toronto", album: "Care Package", year: 2019, why: "The early one. All bars, no chorus." },
+      { title: "5AM in Toronto", album: "Single", year: 2013, why: "The early one. All bars, no chorus. Collected on Care Package in 2019." },
       { title: "8AM in Charlotte", album: "For All the Dogs", year: 2023, why: "Conductor Williams beat, ten years later, still up early." },
       { title: "Emotionless", album: "Scorpion", year: 2018, why: "Mariah Carey sample and the line about the son." },
       { title: "The Resistance", album: "Thank Me Later", year: 2010, why: "What happens to the people you leave behind on the way up." },
