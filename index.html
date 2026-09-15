@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drake by Mood</title>
+  <meta name="description" content="Pick a mood, get five Drake songs that fit it.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='16' y='23' font-family='serif' font-style='italic' font-size='22' text-anchor='middle' fill='%23d4af37'>6</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="wordmark" href="#" data-home>Drake <em>by mood</em></a>
+    <span class="count" data-count></span>
+  </header>
+
+  <main>
+    <section class="picker" aria-labelledby="picker-heading">
+      <h1 id="picker-heading">What's the mood?</h1>
+      <div class="moods" role="group" aria-label="Moods" data-moods></div>
+    </section>
+
+    <section class="result" data-result hidden aria-live="polite">
+      <p class="result-mood"><span data-mood-name></span></p>
+      <p class="result-line" data-mood-line></p>
+      <ol class="tracks" data-tracks></ol>
+      <div class="actions">
+        <button type="button" class="btn" data-shuffle>Five more</button>
+        <button type="button" class="btn ghost" data-copy>Copy link</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Tracks link out to YouTube and Spotify search. Pools are hand-picked and opinionated.</p>
+  </footer>
+
+  <script src="moods.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

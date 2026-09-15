@@ -1,0 +1,172 @@
+// Every mood carries its own palette and a pool of tracks.
+// The app draws five at a time from the pool.
+const MOODS = [
+  {
+    id: "heartbroken",
+    name: "Heartbroken",
+    line: "For when it's over and you're still checking their story.",
+    bg: "#1a080e",
+    accent: "#ef5a78",
+    tracks: [
+      { title: "Marvins Room", album: "Take Care", year: 2011, why: "The 3am phone call you shouldn't make, in song form." },
+      { title: "Doing It Wrong", album: "Take Care", year: 2011, why: "Stevie Wonder on harmonica while you both admit it's done." },
+      { title: "Jaded", album: "Scorpion", year: 2018, why: "Slow, bitter, and a little too honest about who left who." },
+      { title: "Fire & Desire", album: "Views", year: 2016, why: "Wanting someone you know you can't have back." },
+      { title: "Shot for Me", album: "Take Care", year: 2011, why: "Toasting the people who moved on before you did." },
+      { title: "From Time", album: "Nothing Was the Same", year: 2013, why: "Jhené Aiko asks the questions you've been avoiding." },
+      { title: "Karaoke", album: "Thank Me Later", year: 2010, why: "The first thing you hear on the first album is a breakup." },
+      { title: "Texts Go Green", album: "Honestly, Nevermind", year: 2022, why: "Blocked, dancing anyway." },
+      { title: "Hours in Silence", album: "Her Loss", year: 2022, why: "Seven minutes of overthinking set to a slow drum." },
+      { title: "Sooner Than Later", album: "So Far Gone", year: 2009, why: "Early, raw, and already sad about someone." },
+      { title: "U With Me?", album: "Views", year: 2016, why: "Reading old messages and asking a question you know the answer to." },
+      { title: "Nothings Into Somethings", album: "More Life", year: 2017, why: "Finding out from someone else that they moved on." }
+    ]
+  },
+  {
+    id: "hyped",
+    name: "Hyped",
+    line: "For the pregame, the gym, and the drive with the windows down.",
+    bg: "#1b1300",
+    accent: "#ffc42e",
+    tracks: [
+      { title: "Nonstop", album: "Scorpion", year: 2018, why: "Tay Keith beat, no chorus needed." },
+      { title: "Energy", album: "If You're Reading This It's Too Late", year: 2015, why: "Every line is a threat you can shout along to." },
+      { title: "Started From the Bottom", album: "Nothing Was the Same", year: 2013, why: "The obvious one. Still works every time." },
+      { title: "0 to 100 / The Catch Up", album: "Single", year: 2014, why: "The first half of this song is a whole workout." },
+      { title: "Headlines", album: "Take Care", year: 2011, why: "Boi-1da drums and the horn that ends every set." },
+      { title: "Know Yourself", album: "If You're Reading This It's Too Late", year: 2015, why: "Running through the 6 with your woes." },
+      { title: "Over", album: "Thank Me Later", year: 2010, why: "Strings, drums, and a young rapper who knows he made it." },
+      { title: "Rich Flex", album: "Her Loss", year: 2022, why: "21, can you do something for me?" },
+      { title: "Worst Behavior", album: "Nothing Was the Same", year: 2013, why: "Loud, petty, and perfect at full volume." },
+      { title: "First Person Shooter", album: "For All the Dogs", year: 2023, why: "Two rappers in a good mood taking turns going off." },
+      { title: "Way 2 Sexy", album: "Certified Lover Boy", year: 2021, why: "The Right Said Fred sample nobody asked for and everybody yells." },
+      { title: "Jumbotron Shit Poppin", album: "Her Loss", year: 2022, why: "Pure momentum from the first bar." }
+    ]
+  },
+  {
+    id: "late-night",
+    name: "Late night",
+    line: "For after midnight, low light, and nowhere to be.",
+    bg: "#050a1f",
+    accent: "#7f9bff",
+    tracks: [
+      { title: "Passionfruit", album: "More Life", year: 2017, why: "Tropical house for a long-distance situation." },
+      { title: "Teenage Fever", album: "More Life", year: 2017, why: "The Jennifer Lopez sample makes the whole room slow down." },
+      { title: "Massive", album: "Honestly, Nevermind", year: 2022, why: "A club track for when the club has emptied out." },
+      { title: "Controlla", album: "Views", year: 2016, why: "Dancehall pace, whispered vocals." },
+      { title: "Jungle", album: "If You're Reading This It's Too Late", year: 2015, why: "Are we still good? asked over a Gabriel Garzón-Montano loop." },
+      { title: "Come Thru", album: "Nothing Was the Same", year: 2013, why: "The text you send at 1am, produced by Noah '40' Shebib." },
+      { title: "Cameras / Good Ones Go Interlude", album: "Take Care", year: 2011, why: "Two songs that drift into each other like a late drive." },
+      { title: "Chicago Freestyle", album: "Dark Lane Demo Tapes", year: 2020, why: "Eminem flip, hotel room, city outside the window." },
+      { title: "After Dark", album: "Scorpion", year: 2018, why: "Ty Dolla $ign and Static Major on a slow burner." },
+      { title: "The Motion", album: "Care Package", year: 2019, why: "Sampha on the hook, everything else stays out of the way." },
+      { title: "Connect", album: "Nothing Was the Same", year: 2013, why: "Houston-slow, screwed vocals, one of 40's best beats." },
+      { title: "Sticky", album: "Honestly, Nevermind", year: 2022, why: "House drums for the last hour of the night." }
+    ]
+  },
+  {
+    id: "petty",
+    name: "Petty",
+    line: "For when you're right, they're wrong, and you want it on record.",
+    bg: "#13081c",
+    accent: "#c98bff",
+    tracks: [
+      { title: "Back to Back", album: "Single", year: 2015, why: "The diss track that got a Grammy nomination." },
+      { title: "Push Ups", album: "Single", year: 2024, why: "Measuring everyone's shoe size and contracts." },
+      { title: "Family Matters", album: "Single", year: 2024, why: "Seven minutes, three beats, no one spared." },
+      { title: "Duppy Freestyle", album: "Single", year: 2018, why: "Sends an invoice at the end. Actually sends it." },
+      { title: "Two Birds, One Stone", album: "Single", year: 2016, why: "Quiet, calm, and aimed at two people at once." },
+      { title: "The Language", album: "Nothing Was the Same", year: 2013, why: "I don't know why they been lying, but your shit is not that inspiring." },
+      { title: "Mob Ties", album: "Scorpion", year: 2018, why: "Fake friends, real consequences." },
+      { title: "Fake Love", album: "More Life", year: 2017, why: "For the people who only call when it's going well." },
+      { title: "Star67", album: "If You're Reading This It's Too Late", year: 2015, why: "Calling from a blocked number, half laughing." },
+      { title: "No Friends in the Industry", album: "Certified Lover Boy", year: 2021, why: "Says exactly what the title says." },
+      { title: "Childs Play", album: "Views", year: 2016, why: "Arguing at the Cheesecake Factory, immortalised." },
+      { title: "7am on Bridle Path", album: "Certified Lover Boy", year: 2021, why: "A timestamp track with a specific target." }
+    ]
+  },
+  {
+    id: "nostalgic",
+    name: "Nostalgic",
+    line: "For old photos, old friends, and the year everything changed.",
+    bg: "#19120a",
+    accent: "#e9a962",
+    tracks: [
+      { title: "Look What You've Done", album: "Take Care", year: 2011, why: "A thank-you letter to his mum, uncle, and grandmother." },
+      { title: "Best I Ever Had", album: "So Far Gone", year: 2009, why: "Where it started for most people." },
+      { title: "Successful", album: "So Far Gone", year: 2009, why: "Trey Songz, Lil Wayne, and a rapper who hadn't made it yet." },
+      { title: "Houstatlantavegas", album: "So Far Gone", year: 2009, why: "The mixtape song that sounds like a memory." },
+      { title: "Say What's Real", album: "So Far Gone", year: 2009, why: "Rapping over a Kanye beat about being nervous." },
+      { title: "November 18th", album: "So Far Gone", year: 2009, why: "Screwed Houston homage from before Houston claimed him." },
+      { title: "Find Your Love", album: "Thank Me Later", year: 2010, why: "Kanye on the boards, a chorus everyone knows." },
+      { title: "You & the 6", album: "If You're Reading This It's Too Late", year: 2015, why: "A conversation with his mother about the city." },
+      { title: "Weston Road Flows", album: "Views", year: 2016, why: "Mary J. Blige sample, Toronto street names, no hook." },
+      { title: "Do Not Disturb", album: "More Life", year: 2017, why: "Closing the door on a chapter and saying so." },
+      { title: "Fancy", album: "Thank Me Later", year: 2010, why: "Swizz Beatz, T.I., and a chorus for your best friends." },
+      { title: "Uptown", album: "So Far Gone", year: 2009, why: "Bun B and Lil Wayne on the first track that felt like Toronto." }
+    ]
+  },
+  {
+    id: "confident",
+    name: "Confident",
+    line: "For walking in like you own the place, because tonight you do.",
+    bg: "#000000",
+    accent: "#d4af37",
+    tracks: [
+      { title: "God's Plan", album: "Scorpion", year: 2018, why: "The biggest song he has, and it still feels calm." },
+      { title: "Nice for What", album: "Scorpion", year: 2018, why: "Lauryn Hill sample, bounce drums, main character energy." },
+      { title: "Tuscan Leather", album: "Nothing Was the Same", year: 2013, why: "Six minutes of rapping with no hook to hide behind." },
+      { title: "Pound Cake / Paris Morton Music 2", album: "Nothing Was the Same", year: 2013, why: "Jay-Z shows up and Drake still wins the song." },
+      { title: "Money in the Grave", album: "The Best in the World Pack", year: 2019, why: "Released the night the Raptors won. Sounds like it." },
+      { title: "Champagne Poetry", album: "Certified Lover Boy", year: 2021, why: "The Beatles sample and the best verse on the album." },
+      { title: "The Motto", album: "Take Care", year: 2011, why: "Gave the world YOLO. Never apologised." },
+      { title: "Gyalchester", album: "More Life", year: 2017, why: "I know I said top five, but I'm top two." },
+      { title: "Trophies", album: "Single", year: 2014, why: "Hit-Boy horns for when you don't need the award." },
+      { title: "Laugh Now Cry Later", album: "Single", year: 2020, why: "Lil Durk feature, Nike campus video, pure ease." },
+      { title: "Underground Kings", album: "Take Care", year: 2011, why: "The Take Care track for people who want bars." },
+      { title: "Elevate", album: "Scorpion", year: 2018, why: "Short, clean, and sure of itself." }
+    ]
+  },
+  {
+    id: "in-love",
+    name: "In love",
+    line: "For the one you're texting right now.",
+    bg: "#1b0713",
+    accent: "#ff86b3",
+    tracks: [
+      { title: "Hold On, We're Going Home", album: "Nothing Was the Same", year: 2013, why: "The wedding song. It earned it." },
+      { title: "Take Care", album: "Take Care", year: 2011, why: "Rihanna, Jamie xx, and a promise to try again." },
+      { title: "One Dance", album: "Views", year: 2016, why: "Wizkid and Kyla on the song that took over a summer." },
+      { title: "Too Good", album: "Views", year: 2016, why: "Rihanna again, both of them a little too honest." },
+      { title: "Make Me Proud", album: "Take Care", year: 2011, why: "Nicki Minaj on a song that's genuinely proud of someone." },
+      { title: "Get It Together", album: "More Life", year: 2017, why: "Jorja Smith and a Black Coffee beat. Slow, warm." },
+      { title: "In My Feelings", album: "Scorpion", year: 2018, why: "Kiki, do you love me? Asked earnestly." },
+      { title: "Fountains", album: "Certified Lover Boy", year: 2021, why: "Tems on the hook and an Afrobeats sway." },
+      { title: "Search & Rescue", album: "Single", year: 2023, why: "Take me out of the club, take me out of my ways." },
+      { title: "Shut It Down", album: "Thank Me Later", year: 2010, why: "Six minutes with The-Dream about someone who stops the room." },
+      { title: "Nokia", album: "$ome $exy $ongs 4 U", year: 2025, why: "The phone-ringing beat that took over 2025." },
+      { title: "Race My Mind", album: "Certified Lover Boy", year: 2021, why: "The song that runs while you wait for a reply." }
+    ]
+  },
+  {
+    id: "grinding",
+    name: "Grinding",
+    line: "For the early morning, the long shift, and the plan nobody else believes in.",
+    bg: "#08140f",
+    accent: "#6fe0a3",
+    tracks: [
+      { title: "Light Up", album: "Thank Me Later", year: 2010, why: "Jay-Z passes the torch and Drake sounds ready." },
+      { title: "Over My Dead Body", album: "Take Care", year: 2011, why: "Chantal Kreviazuk piano and a mission statement." },
+      { title: "Lord Knows", album: "Take Care", year: 2011, why: "Just Blaze choir, Rick Ross, and no room for doubt." },
+      { title: "Furthest Thing", album: "Nothing Was the Same", year: 2013, why: "Somewhere between being famous and staying focused." },
+      { title: "6PM in New York", album: "If You're Reading This It's Too Late", year: 2015, why: "A timestamp track that reads like a to-do list." },
+      { title: "5AM in Toronto", album: "Care Package", year: 2019, why: "The early one. All bars, no chorus." },
+      { title: "8AM in Charlotte", album: "For All the Dogs", year: 2023, why: "Conductor Williams beat, ten years later, still up early." },
+      { title: "Emotionless", album: "Scorpion", year: 2018, why: "Mariah Carey sample and the line about the son." },
+      { title: "The Resistance", album: "Thank Me Later", year: 2010, why: "What happens to the people you leave behind on the way up." },
+      { title: "Survival", album: "Scorpion", year: 2018, why: "The album opener that takes stock of the career." },
+      { title: "Fireworks", album: "Thank Me Later", year: 2010, why: "The first song on the first album. Alicia Keys on the hook." },
+      { title: "Deep Pockets", album: "Dark Lane Demo Tapes", year: 2020, why: "Late-career Drake still talking about the work." }
+    ]
+  }
+];
