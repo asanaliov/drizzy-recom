@@ -457,7 +457,8 @@ main {
   color: var(--ink-3);
 }
 
-.foot p { margin: 0; max-width: 60ch; }
+.foot p { margin: 0; max-width: 72ch; }
+.foot p + p { margin-top: 6px; }
 .foot { padding-bottom: max(22px, env(safe-area-inset-bottom)); }
 
 /* Result entrance: one moment, answers the click */

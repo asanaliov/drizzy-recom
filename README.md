@@ -40,6 +40,10 @@ Think a song's missing? Add a line to the right pool and reload. Use `album: "Si
 
 Album covers come from Apple's public artwork CDN (`covers.js`). Tracks link out to YouTube and Spotify search instead of hardcoded IDs, so when a link changes the app doesn't. Know yourself, know your worth, know your fallbacks.
 
+## Trust issues, part two
+
+This is an unofficial fan project. It isn't affiliated with, endorsed by, or sponsored by Drake, OVO Sound, Republic Records, or anyone else on the credits. Album artwork, the owl, and song titles belong to their respective owners and appear here for identification only. Nothing is hosted: tracks link out to YouTube and Spotify search, and covers load from Apple Music's public artwork CDN. If you own any of it and want it gone, open an issue and it's gone.
+
 ## License
 
-MIT. Take care.
+MIT for the code. Take care.
