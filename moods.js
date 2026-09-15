@@ -1,12 +1,10 @@
-// Every mood carries its own palette and a pool of tracks.
+// Every mood is a pool of tracks.
 // The app draws five at a time from the pool.
 const MOODS = [
   {
     id: "heartbroken",
     name: "Heartbroken",
     line: "For when it's over and you're still checking their story.",
-    bg: "#1a080e",
-    accent: "#ef5a78",
     tracks: [
       { title: "Marvins Room", album: "Take Care", year: 2011, why: "The 3am phone call you shouldn't make, in song form." },
       { title: "Doing It Wrong", album: "Take Care", year: 2011, why: "Stevie Wonder on harmonica while you both admit it's done." },
@@ -26,8 +24,6 @@ const MOODS = [
     id: "hyped",
     name: "Hyped",
     line: "For the pregame, the gym, and the drive with the windows down.",
-    bg: "#1b1300",
-    accent: "#ffc42e",
     tracks: [
       { title: "Nonstop", album: "Scorpion", year: 2018, why: "Tay Keith beat, no chorus needed." },
       { title: "Energy", album: "If You're Reading This It's Too Late", year: 2015, why: "Every line is a threat you can shout along to." },
@@ -47,8 +43,6 @@ const MOODS = [
     id: "late-night",
     name: "Late night",
     line: "For after midnight, low light, and nowhere to be.",
-    bg: "#050a1f",
-    accent: "#7f9bff",
     tracks: [
       { title: "Passionfruit", album: "More Life", year: 2017, why: "Tropical house for a long-distance situation." },
       { title: "Teenage Fever", album: "More Life", year: 2017, why: "The Jennifer Lopez sample makes the whole room slow down." },
@@ -68,8 +62,6 @@ const MOODS = [
     id: "petty",
     name: "Petty",
     line: "For when you're right, they're wrong, and you want it on record.",
-    bg: "#13081c",
-    accent: "#c98bff",
     tracks: [
       { title: "Back to Back", album: "Single", year: 2015, why: "The diss track that got a Grammy nomination." },
       { title: "Push Ups", album: "Single", year: 2024, why: "Measuring everyone's shoe size and contracts." },
@@ -89,8 +81,6 @@ const MOODS = [
     id: "nostalgic",
     name: "Nostalgic",
     line: "For old photos, old friends, and the year everything changed.",
-    bg: "#19120a",
-    accent: "#e9a962",
     tracks: [
       { title: "Look What You've Done", album: "Take Care", year: 2011, why: "A thank-you letter to his mum, uncle, and grandmother." },
       { title: "Best I Ever Had", album: "So Far Gone", year: 2009, why: "Where it started for most people." },
@@ -110,8 +100,6 @@ const MOODS = [
     id: "confident",
     name: "Confident",
     line: "For walking in like you own the place, because tonight you do.",
-    bg: "#000000",
-    accent: "#d4af37",
     tracks: [
       { title: "God's Plan", album: "Scorpion", year: 2018, why: "The biggest song he has, and it still feels calm." },
       { title: "Nice for What", album: "Scorpion", year: 2018, why: "Lauryn Hill sample, bounce drums, main character energy." },
@@ -131,8 +119,6 @@ const MOODS = [
     id: "in-love",
     name: "In love",
     line: "For the one you're texting right now.",
-    bg: "#1b0713",
-    accent: "#ff86b3",
     tracks: [
       { title: "Hold On, We're Going Home", album: "Nothing Was the Same", year: 2013, why: "The wedding song. It earned it." },
       { title: "Take Care", album: "Take Care", year: 2011, why: "Rihanna, Jamie xx, and a promise to try again." },
@@ -152,8 +138,6 @@ const MOODS = [
     id: "grinding",
     name: "Grinding",
     line: "For the early morning, the long shift, and the plan nobody else believes in.",
-    bg: "#08140f",
-    accent: "#6fe0a3",
     tracks: [
       { title: "Light Up", album: "Thank Me Later", year: 2010, why: "Jay-Z passes the torch and Drake sounds ready." },
       { title: "Over My Dead Body", album: "Take Care", year: 2011, why: "Chantal Kreviazuk piano and a mission statement." },

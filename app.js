@@ -10,8 +10,7 @@
     shuffle: document.querySelector("[data-shuffle]"),
     copy: document.querySelector("[data-copy]"),
     home: document.querySelector("[data-home]"),
-    count: document.querySelector("[data-count]"),
-    themeMeta: document.querySelector('meta[name="theme-color"]')
+    count: document.querySelector("[data-count]")
   };
 
   const total = MOODS.reduce((n, m) => n + m.tracks.length, 0);
@@ -34,13 +33,6 @@
     });
     els.moods.appendChild(btn);
   });
-
-  function setTheme(mood) {
-    const root = document.documentElement.style;
-    root.setProperty("--bg", mood ? mood.bg : "#000000");
-    root.setProperty("--accent", mood ? mood.accent : "#d4af37");
-    els.themeMeta.setAttribute("content", mood ? mood.bg : "#000000");
-  }
 
   function pickFrom(mood) {
     // Avoid repeating the exact set just shown when the pool allows it
@@ -98,7 +90,6 @@
 
   function show(mood) {
     current = mood;
-    setTheme(mood);
     document.title = mood ? mood.name + " — Drake by Mood" : "Drake by Mood";
 
     els.moods.querySelectorAll(".mood").forEach((b) => {
