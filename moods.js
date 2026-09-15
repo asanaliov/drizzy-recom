@@ -5,8 +5,8 @@ const MOODS = [
   {
     id: "heartbroken",
     art: "Take Care",
-    name: "Heartbroken",
-    line: "For when it's over and you're still checking their story.",
+    name: "Texts Go Green",
+    line: "Heartbroken. It's over, you're still checking their story, and the texts went green.",
     tracks: [
       { title: "Marvins Room", album: "Take Care", year: 2011, why: "The 3am phone call you shouldn't make, in song form." },
       { title: "Doing It Wrong", album: "Take Care", year: 2011, why: "Stevie Wonder on harmonica while you both admit it's done." },
@@ -33,8 +33,8 @@ const MOODS = [
   {
     id: "hyped",
     art: "Scorpion",
-    name: "Hyped",
-    line: "For the pregame, the gym, and the drive with the windows down.",
+    name: "0 to 100",
+    line: "Hyped. Pregame, gym, windows down. Going real quick.",
     tracks: [
       { title: "Nonstop", album: "Scorpion", year: 2018, why: "Tay Keith beat, no chorus needed." },
       { title: "Energy", album: "If You're Reading This It's Too Late", year: 2015, why: "Every line is a threat you can shout along to." },
@@ -60,8 +60,8 @@ const MOODS = [
   {
     id: "late-night",
     art: "Honestly, Nevermind",
-    name: "Late night",
-    line: "For after midnight, low light, and nowhere to be.",
+    name: "Up All Night",
+    line: "Late night. The city's asleep. You're not.",
     tracks: [
       { title: "Passionfruit", album: "More Life", year: 2017, why: "Tropical house for a long-distance situation." },
       { title: "Teenage Fever", album: "More Life", year: 2017, why: "The Jennifer Lopez sample makes the whole room slow down." },
@@ -90,8 +90,8 @@ const MOODS = [
   {
     id: "petty",
     art: "Family Matters",
-    name: "Petty",
-    line: "For when you're right, they're wrong, and you want it on record.",
+    name: "Back to Back",
+    line: "Petty. You're right, they're wrong, and you want it on record.",
     tracks: [
       { title: "Back to Back", album: "Single", year: 2015, why: "The diss track that got a Grammy nomination." },
       { title: "Push Ups", album: "Single", year: 2024, why: "Measuring everyone's shoe size and contracts." },
@@ -117,8 +117,8 @@ const MOODS = [
   {
     id: "nostalgic",
     art: "Thank Me Later",
-    name: "Nostalgic",
-    line: "For old photos, old friends, and the year everything changed.",
+    name: "Weston Road",
+    line: "Nostalgic. Old photos, old friends, the block before all this.",
     tracks: [
       { title: "Look What You've Done", album: "Take Care", year: 2011, why: "A thank-you letter to his mum, uncle, and grandmother." },
       { title: "Best I Ever Had", album: "So Far Gone", year: 2009, why: "Where it started for most people." },
@@ -143,8 +143,8 @@ const MOODS = [
   {
     id: "confident",
     art: "The Best in the World Pack",
-    name: "Confident",
-    line: "For walking in like you own the place, because tonight you do.",
+    name: "6 God",
+    line: "Confident. Walk in like you own the place. Tonight you do.",
     tracks: [
       { title: "God's Plan", album: "Scorpion", year: 2018, why: "The biggest song he has, and it still feels calm." },
       { title: "Nice for What", album: "Scorpion", year: 2018, why: "Lauryn Hill sample, bounce drums, main character energy." },
@@ -168,8 +168,8 @@ const MOODS = [
   {
     id: "made-it",
     art: "Nothing Was the Same",
-    name: "Made it",
-    line: "For the day it finally happened, and everyone who said it wouldn't.",
+    name: "Now We're Here",
+    line: "Made it. It finally happened, and everyone who said it wouldn't can take a seat.",
     lead: "No Secret",
     tracks: [
       { title: "No Secret", album: "God Did", year: 2022, why: "A DJ Khaled beat and a verse that doesn't hide anything. Start here." },
@@ -194,8 +194,8 @@ const MOODS = [
   {
     id: "in-love",
     art: "Certified Lover Boy",
-    name: "In love",
-    line: "For the one you're texting right now.",
+    name: "Lover Boy",
+    line: "In love. Certified. For the one you're texting right now.",
     tracks: [
       { title: "Hold On, We're Going Home", album: "Nothing Was the Same", year: 2013, why: "The wedding song. It earned it." },
       { title: "Take Care", album: "Take Care", year: 2011, why: "Rihanna, Jamie xx, and a promise to try again." },
@@ -223,8 +223,8 @@ const MOODS = [
   {
     id: "grinding",
     art: "If You're Reading This It's Too Late",
-    name: "Grinding",
-    line: "For the early morning, the long shift, and the plan nobody else believes in.",
+    name: "Nonstop",
+    line: "Grinding. Early mornings, long shifts, and the plan nobody else believes in.",
     tracks: [
       { title: "Light Up", album: "Thank Me Later", year: 2010, why: "Jay-Z passes the torch and Drake sounds ready." },
       { title: "Over My Dead Body", album: "Take Care", year: 2011, why: "Chantal Kreviazuk piano and a mission statement." },

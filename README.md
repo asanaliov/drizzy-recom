@@ -2,7 +2,7 @@
 
 Started from the bottom of a mood, now the whole playlist's here. Pick how you feel, get five songs from the 6 God that match it. Black and gold, a hundred and seventy-two tracks, nine moods, every one with a reason it made the cut. No cap, no filler, no skips.
 
-Hit **Five more** and the pool runs it back with a new set. Copy the link and send somebody the mood directly, like `#heartbroken` when texts go green, or `#late-night` when you're up at 6PM in New York and it's actually 3AM in Toronto.
+Hit **Five more** and the pool runs it back with a new set. Copy the link and send somebody the mood directly, like `#heartbroken` when the texts go green, or `#late-night` when it's 6PM in New York and 3AM in Toronto.
 
 ## Started from the bottom
 
@@ -18,15 +18,15 @@ Then pull up to <http://localhost:8000>. Or just open `index.html` and let it ri
 
 | Mood | For when |
 | --- | --- |
-| Heartbroken | it's over and you're still checking their story |
-| Hyped | the pregame, the gym, windows down on the Gardiner |
-| Late night | after midnight with nowhere to be |
-| Petty | you're right, they're wrong, and you want it on record |
-| Nostalgic | old photos, old friends, the year everything changed |
-| Confident | you walk in like you own the place, because tonight you do |
-| Made it | it finally happened, and everyone said it wouldn't |
-| In love | the one you're texting right now |
-| Grinding | the early morning and the plan nobody else believes in |
+| Texts Go Green | it's over and you're still checking their story |
+| 0 to 100 | the pregame, the gym, windows down on the Gardiner |
+| Up All Night | the city's asleep and you're not |
+| Back to Back | you're right, they're wrong, and you want it on record |
+| Weston Road | old photos, old friends, the block before all this |
+| 6 God | you walk in like you own the place, because tonight you do |
+| Now We're Here | it finally happened, and everyone said it wouldn't |
+| Lover Boy | the one you're texting right now |
+| Nonstop | the early morning and the plan nobody else believes in |
 
 ## Trust issues
 
