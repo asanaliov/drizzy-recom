@@ -17,7 +17,7 @@
 
 * { box-sizing: border-box; }
 
-html { color-scheme: dark; scroll-behavior: smooth; }
+html { color-scheme: dark; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
@@ -44,6 +44,8 @@ a { color: inherit; }
   align-items: center;
   height: var(--top-h);
   padding: 0 var(--gutter);
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
   background: var(--bg);
 }
 
@@ -81,6 +83,8 @@ main {
   max-width: var(--wrap);
   margin: 0 auto;
   padding: 0 var(--gutter);
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
 }
 
 /* Intro: one full screen of the owl and the catalogue */
@@ -428,6 +432,7 @@ main {
 }
 
 .foot p { margin: 0; max-width: 60ch; }
+.foot { padding-bottom: max(22px, env(safe-area-inset-bottom)); }
 
 /* Result entrance: one moment, answers the click */
 @keyframes rise {
@@ -454,16 +459,43 @@ main {
 }
 
 @media (max-width: 760px) {
-  :root { --ring: min(78vw, 320px); --cover: 52px; }
-  .moods { grid-template-columns: repeat(2, 1fr); }
-  .mood { min-height: 0; padding: 12px 14px 13px; }
-  .mood-name { font-size: 22px; }
-}
+  :root { --ring: min(88vw, 360px); --cover: 56px; --top-h: 52px; }
+  .intro { gap: 18px; }
+  .intro-line { font-size: 21px; text-align: center; padding: 0 12px; }
+  .picker { padding-top: 36px; }
+  .picker h1 { font-size: 34px; margin-bottom: 14px; }
 
-@media (max-width: 600px) {
-  .track { grid-template-columns: 1.4em 40px minmax(0, 1fr); }
-  .track-cover { width: 40px; height: 40px; }
-  .track-links { grid-column: 3; }
-  .actions { flex-wrap: wrap; }
-  .result-head { align-items: flex-start; flex-direction: column; gap: 10px; }
+  /* Name-only tiles: the description shows up again above the songs */
+  .moods { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .mood { min-height: 0; padding: 14px 16px; justify-content: center; }
+  .mood-name { font-size: 24px; }
+  .mood-line { display: none; }
+
+  .result { padding-top: 28px; }
+  .result-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .result-covers .track-cover { width: 36px; height: 36px; margin-left: -10px; }
+  .result-mood { font-size: 40px; }
+  .result-line { font-size: 14px; }
+
+  /* Rows drop the number; the cover carries the row */
+  .track {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 2px 12px;
+    padding: 12px 0;
+  }
+  .track::before { display: none; }
+  .track-title { font-size: 16px; }
+  .track-meta { font-size: 12px; }
+  .track-why { font-size: 13.5px; margin-top: 4px; }
+  .track-links {
+    grid-column: 2;
+    gap: 16px;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+  .track-links a { padding: 2px 0 3px; }
+
+  .actions { gap: 8px; }
+  .btn { flex: 1; text-align: center; }
+  .foot { padding-top: 20px; }
 }
