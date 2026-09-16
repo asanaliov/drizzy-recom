@@ -18,10 +18,10 @@ Then pull up to <http://localhost:8000>. Or just open `index.html` and let it ri
 
 | Mood | For when |
 | --- | --- |
-| Texts Go Green | it's over and you're still checking their story |
+| Trust Issues | it's over and you're still checking their story |
 | 0 to 100 | the pregame, the gym, windows down on the Gardiner |
-| Up All Night | the city's asleep and you're not |
-| Back to Back | you're right, they're wrong, and you want it on record |
+| Hotline Bling | the city's asleep and you're not |
+| Twitter Fingers | you're right, they're wrong, and you want it on record |
 | Weston Road | old photos, old friends, the block before all this |
 | 6 God | you walk in like you own the place, because tonight you do |
 | Now We're Here | it finally happened, and everyone said it wouldn't |
